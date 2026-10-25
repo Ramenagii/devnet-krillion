@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+!.env.*.example
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+supabase/.temp/
+.agents/
+*.tsbuildinfo
+
+# API credentials and signing files
+*.pem
+*.p12
+*.pfx
+service-account*.json
+credentials*.json
+secrets*.json

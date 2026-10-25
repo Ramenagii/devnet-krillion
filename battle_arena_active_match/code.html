@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>DevNet Krillion</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error-container": "#ffdad6", "surface-bright": "#343752", "surface-container-low": "#161933", "surface-container-high": "#252842", "on-primary-fixed-variant": "#4c1fbe", "tertiary-container": "#6e5db2", "outline": "#938ea0", "text-muted": "#B7C0D9", "zone-engine": "#A78BFA", "tertiary-fixed-dim": "#cbbeff", "secondary-fixed": "#a6eeff", "text-primary": "#F7F8FF", "on-background": "#dfe0ff", "background": "#0e112a", "zone-midnight": "#818CF8", "secondary-container": "#269eb4", "secondary": "#6bd5ec", "on-secondary-fixed": "#001f25", "on-tertiary-fixed-variant": "#4a398c", "on-primary": "#350097", "on-surface": "#dfe0ff", "glow-violet": "rgba(112, 77, 226, 0.35)", "surface-dim": "#0e112a", "primary": "#ccbeff", "surface-container": "#1b1e37", "on-secondary-fixed-variant": "#004e5b", "error": "#ffb4ab", "on-tertiary-fixed": "#1e015f", "error-container": "#93000a", "primary-fixed-dim": "#ccbeff", "inverse-surface": "#dfe0ff", "accent-gold": "#F4B844", "zone-abyss": "#FB7185", "outline-variant": "#484554", "primary-container": "#704de2", "tertiary-fixed": "#e7deff", "zone-trench": "#D946EF", "surface-tint": "#ccbeff", "on-primary-fixed": "#1e0060", "primary-fixed": "#e7deff", "on-secondary": "#00363f", "on-primary-container": "#efe7ff", "tertiary": "#cbbeff", "zone-surface": "#38BDF8", "inverse-primary": "#6540d6", "on-tertiary-container": "#efe8ff", "surface-container-lowest": "#090c25", "on-error": "#690005", "on-surface-variant": "#cac3d7", "secondary-fixed-dim": "#6bd5ec", "zone-twilight": "#60A5FA", "border-violet": "rgba(112, 77, 226, 0.2)", "surface-variant": "#30334d", "surface": "#0e112a", "inverse-on-surface": "#2b2e49", "on-tertiary": "#332074", "surface-container-highest": "#30334d", "on-secondary-container": "#002f37", "surface-midnight": "#17133B", "danger-red": "#F87171" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-sm": "1rem", "space-md": "1rem", "space-xs": "0.25rem", "margin": "2rem", "space-xl": "2rem", "gutter": "1.5rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "body-md": [ "Inter" ], "display-hero": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "data-timer": [ "JetBrains Mono" ], "label-caps": [ "Inter" ], "body-sm": [ "Inter" ], "label-code": [ "JetBrains Mono" ], "display-hero-mobile": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "headline-md": [ "Space Grotesk" ], "data-metric": [ "JetBrains Mono" ], "body-lg": [ "Inter" ] }, "fontSize": { "body-md": [ "15px", { "lineHeight": "22px", "fontWeight": "400" } ], "display-hero": [ "64px", { "lineHeight": "72px", "letterSpacing": "0.06em", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "letterSpacing": "0.03em", "fontWeight": "600" } ], "data-timer": [ "32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "label-code": [ "13px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "0.04em", "fontWeight": "700" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "0.04em", "fontWeight": "700" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "0.05em", "fontWeight": "700" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "data-metric": [ "20px", { "lineHeight": "26px", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="DevNet Krillion Waveform Logo" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1W8JIVGfZHtdHswHQWkZZgQtXmthPrv1J_2OFW2HfSHiDNX25M-NiipJdFO3psdg-qbVu_qowNn2jcHnP9kj9mGflHpMQ1mW5EZk6-ImEdh0YsBU8bBZ9aIJnXuqUF9ljo3voVCTVTpajel4w40asS6g1uG0AHKXw2ygyt2PweQN25qfKfBgQi1zTXuLbpfDru3ujiCBYrU7SfSZQ0eEDStGqXEMgstdkn1tyuJYajdgU1zBsi9nGTkWlmbxbHSMDeVdHXFVaEe-g"><span class="font-headline-sm text-headline-sm uppercase tracking-widest text-text-primary">DevNet Krillion</span></div><nav class="hidden md:flex items-center gap-space-sm" data-active-classes="bg-primary-container text-on-primary-container shadow-[0_0_16px_rgba(107,213,236,0.35)] rounded-lg"><a class="px-space-md py-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="daily-dive" href="#">Daily Dive</a><a aria-current="page" class="px-space-md py-space-xs font-label-caps uppercase transition-colors bg-primary-container text-on-primary-container shadow-[0_0_16px_rgba(107,213,236,0.35)] rounded-lg" data-path="battle-rooms" href="#">Battle Rooms</a><a class="px-space-md py-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="leaderboard" href="#">Leaderboard</a><a class="px-space-md py-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="stats" href="#">Stats</a></nav><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-accent-gold text-sm">local_fire_department</span><span class="font-label-code text-label-code text-accent-gold uppercase tracking-wider">5 Day Streak</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1W8JIVGfZHtdHswHQWkZZgQtXmthPrv1J_2OFW2HfSHiDNX25M-NiipJdFO3psdg-qbVu_qowNn2jcHnP9kj9mGflHpMQ1mW5EZk6-ImEdh0YsBU8bBZ9aIJnXuqUF9ljo3voVCTVTpajel4w40asS6g1uG0AHKXw2ygyt2PweQN25qfKfBgQi1zTXuLbpfDru3ujiCBYrU7SfSZQ0eEDStGqXEMgstdkn1tyuJYajdgU1zBsi9nGTkWlmbxbHSMDeVdHXFVaEe-g"></div></div></header><main class="w-full pt-16 bg-surface"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><div class="flex flex-col w-full py-space-md">
+<!-- Top Atmospheric Status Ribbon -->
+<div class="relative w-full mb-space-lg rounded-xl overflow-hidden bg-surface-container-low shadow-xl">
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute left-1/3 -bottom-24 w-96 h-96 rounded-full bg-primary-container/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-wrap"><div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-midnight shadow-md"><span class="w-2.5 h-2.5 rounded-full bg-danger-red animate-ping"></span><span class="font-label-caps uppercase text-danger-red font-semibold">LIVE BATTLE</span></div><div class="font-headline-sm text-text-primary flex items-center gap-2"><span class="">Room <span class="font-label-code text-secondary">K7X9M2</span></span></div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-secondary text-sm">groups</span><span class="font-label-code text-text-primary text-xs uppercase tracking-wider">14 / 18 Answered</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-accent-gold text-base" style="font-variation-settings: 'FILL' 1;">stars</span><span class="font-label-caps uppercase text-accent-gold tracking-wider">Multipliers Active</span></div></div></div>
+</div>
+<!-- Main 3-Column Arena Grid: 38% | 36% | 26% -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: Active Question & Input Console (38% on lg -> 5 cols or ~38-40%) -->
+<section class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="relative rounded-xl bg-surface-midnight p-space-lg shadow-xl overflow-hidden flex flex-col justify-between min-h-[580px]">
+<div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent-gold via-primary-container to-secondary"></div>
+<!-- Header Info -->
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-space-md">
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-accent-gold/15 text-accent-gold">
+<span class="material-symbols-outlined text-xs">bolt</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">BATTLE MODE • QUESTION 4 OF 7</span>
+</div>
+<div class="font-label-code text-label-code px-3 py-1 rounded-md bg-surface-container-highest text-secondary tracking-widest shadow-inner">
+              K7X9M2
+            </div>
+</div>
+<!-- Chronometer Block -->
+<div class="rounded-xl p-space-md mb-space-lg bg-surface-container-lowest/80 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-text-muted">Descent Window Closes In</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-danger-red animate-pulse text-lg">alarm</span>
+<span class="font-data-timer text-data-timer tracking-tight animate-[pulse_1s_ease-in-out_infinite] text-text-muted" id="countdown-timer">0:00</span>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center gap-1 text-danger-red font-label-caps text-label-caps uppercase bg-danger-red/10 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs">warning</span> CRITICAL PHASE
+              </span>
+<p class="font-label-code text-label-code text-text-muted mt-1">LOCKOUT AT 0:00</p>
+</div>
+</div>
+<!-- Prompt -->
+<div class="space-y-space-xs mb-space-lg"><div class="flex items-center gap-space-xs text-secondary font-label-caps uppercase tracking-wider"><span class="material-symbols-outlined text-sm">terminal</span><span class="">Question 4 of 7 • Kubernetes Rollbacks</span></div><h2 class="font-headline-md text-text-primary leading-tight">Which CLI command is used to trigger canary deployment rollback in devNet pipeline?</h2><p class="font-body-md text-text-muted pt-space-xs">Enter any valid CLI command. Less common answers earn more points!</p></div>
+</div>
+<!-- Submission Status & Interactive Terminal -->
+<div class="space-y-space-md pt-space-md"><div class="rounded-lg p-space-md bg-surface-container-high/90 shadow-lg border-l-4 border-secondary"><div class="flex items-center justify-between gap-space-sm mb-space-xs"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span><span class="font-label-caps uppercase text-secondary font-semibold">Your Answer Locked In ✓</span></div><span class="font-label-code text-xs px-2 py-0.5 rounded bg-surface-midnight text-accent-gold">Speed: 2.41s</span></div><div class="p-space-sm rounded bg-surface-container-lowest font-label-code text-text-primary flex items-center justify-between"><code>kubectl rollout undo</code><span class="text-secondary text-xs font-semibold">+10m depth</span></div></div><div class="rounded-lg p-space-md bg-surface-container-low flex flex-col gap-space-xs"><div class="flex items-center justify-between text-body-sm"><span class="text-text-muted flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">groups</span> Players Responded</span><span class="font-label-code text-text-primary font-semibold">14 of 18 Ready</span></div><div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-gradient-to-r from-primary-container via-secondary to-accent-gold transition-all duration-500 ease-out" style="width: 77.7%;"></div></div></div></div>
+</div>
+<!-- Quick Telemetry Mini-Stat Strip -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-md rounded-xl bg-surface-container-high shadow flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-midnight flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps uppercase text-text-muted">Your Velocity</span>
+<span class="font-data-metric text-data-metric text-text-primary font-bold">2.41s</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-high shadow flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-midnight flex items-center justify-center text-accent-gold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps uppercase text-text-muted">Target Rarity</span>
+<span class="font-data-metric text-data-metric text-accent-gold font-bold">LEGENDARY</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CENTER COLUMN: Realtime Live Frequency Bars (36% on lg -> 4 cols) -->
+<section class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="relative rounded-xl bg-surface-midnight p-space-lg shadow-xl overflow-hidden min-h-[580px] flex flex-col justify-between">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<!-- Header with Pulse Indicator -->
+<div class="flex items-center justify-between pb-space-sm mb-space-md"><div><span class="font-label-caps text-secondary uppercase tracking-widest block">LIVE RESULTS</span><h3 class="font-headline-sm uppercase text-text-primary tracking-wider">WHAT PLAYERS ANSWERED</h3></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest shadow-inner"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span class="font-label-code text-secondary text-xs uppercase">LIVE</span></div></div>
+<p class="font-body-sm text-body-sm text-text-muted mb-space-lg">Real-time breakdown of answers chosen by your cohort this round.</p>
+<!-- Frequency Bars Container -->
+<div class="space-y-space-md">
+<!-- Option 1: Common (Cyan Bar) -->
+<div class="group flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between font-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<code class="font-label-code text-label-code text-text-primary font-semibold truncate">rollout undo</code>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-caps uppercase bg-secondary/10 text-secondary">Common</span>
+</div>
+<div class="flex items-center gap-2 font-data-metric text-sm">
+<span class="text-text-muted">50% (7/14)</span>
+<span class="text-secondary font-bold">+10m</span>
+</div>
+</div>
+<div class="w-full h-7 rounded-md bg-surface-container-lowest overflow-hidden relative flex items-center px-2">
+<div class="absolute left-0 top-0 bottom-0 bg-secondary/80 rounded-md transition-all duration-700 ease-out shadow-[0_0_12px_rgba(107,213,236,0.35)]" style="width: 50%;"></div>
+<span class="relative z-10 font-label-code text-xs text-on-secondary-fixed font-semibold tracking-wide">YOUR INPUT • STANDARD CLOUD DIVE</span>
+</div>
+</div>
+<!-- Option 2: Uncommon (Lavender Bar) -->
+<div class="group flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between font-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<code class="font-label-code text-label-code text-text-primary font-semibold truncate">helm rollback</code>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-caps uppercase bg-primary/20 text-primary">Uncommon</span>
+</div>
+<div class="flex items-center gap-2 font-data-metric text-sm">
+<span class="text-text-muted">28% (4/14)</span>
+<span class="text-primary font-bold">+25m</span>
+</div>
+</div>
+<div class="w-full h-7 rounded-md bg-surface-container-lowest overflow-hidden relative flex items-center px-2">
+<div class="absolute left-0 top-0 bottom-0 bg-primary/70 rounded-md transition-all duration-700 ease-out" style="width: 28%;"></div>
+<span class="relative z-10 font-label-code text-xs text-on-primary-fixed font-semibold">HELM ECOSYSTEM VARIANT</span>
+</div>
+</div>
+<!-- Option 3: Rare (Glowing Purple Bar) -->
+<div class="group flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between font-body-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2 h-2 rounded-full bg-zone-trench"></span>
+<code class="font-label-code text-label-code text-text-primary font-semibold truncate">devnet deploy --rollback</code>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-caps uppercase bg-zone-trench/20 text-zone-trench">Rare</span>
+</div>
+<div class="flex items-center gap-2 font-data-metric text-sm">
+<span class="text-text-muted">14% (2/14)</span>
+<span class="text-zone-trench font-bold">+50m</span>
+</div>
+</div>
+<div class="w-full h-7 rounded-md bg-surface-container-lowest overflow-hidden relative flex items-center px-2">
+<div class="absolute left-0 top-0 bottom-0 bg-zone-trench/80 rounded-md transition-all duration-700 ease-out shadow-[0_0_14px_rgba(217,70,239,0.4)]" style="width: 14%;"></div>
+<span class="relative z-10 font-label-code text-xs text-text-primary font-semibold">CUSTOM WRAPPER PIPELINE</span>
+</div>
+</div>
+<!-- Option 4: Legendary / Rarest (Gold Bar with Spark) -->
+<div class="group flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-high shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-accent-gold/10 to-transparent pointer-events-none"></div>
+<div class="flex items-center justify-between font-body-sm relative z-10">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-accent-gold text-sm animate-spin" style="font-variation-settings: 'FILL' 1;">flare</span>
+<code class="font-label-code text-label-code text-accent-gold font-bold truncate">argocd app sync --prev</code>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-caps uppercase bg-accent-gold/20 text-accent-gold font-bold">Legendary</span>
+</div>
+<div class="flex items-center gap-2 font-data-metric text-sm">
+<span class="text-text-muted">8% (1/14)</span>
+<span class="text-accent-gold font-bold">+200m</span>
+</div>
+</div>
+<div class="w-full h-8 rounded-md bg-surface-container-lowest overflow-hidden relative flex items-center px-2 mt-0.5">
+<div class="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-accent-gold to-yellow-300 rounded-md transition-all duration-700 ease-out shadow-[0_0_18px_rgba(244,184,68,0.6)]" style="width: 8%;"></div>
+<span class="relative z-10 font-label-code text-xs text-on-secondary-fixed font-bold tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">grade</span> RAREST DEPTH BOOST! (marco_dev)
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Note Callout -->
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-lowest/90 flex items-start gap-space-sm"><span class="text-base select-none">⭐</span><p class="font-body-sm text-text-primary font-medium">Rarest answer gets a <span class="text-accent-gold font-bold">+200m depth surge</span> on the leaderboard!</p></div>
+</div>
+<!-- Realtime Frequency Sparkline & Velocity Telemetry -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-text-primary">
+<span class="material-symbols-outlined text-sm">equalizer</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps uppercase text-text-muted">Consensus Spread</span>
+<span class="font-label-code text-label-code text-text-primary">Entropy 0.74 (Broad Dive)</span>
+</div>
+</div>
+<svg class="w-24 h-8 text-secondary overflow-visible" fill="none" viewBox="0 0 100 30">
+<path d="M0 25 Q 25 20, 45 10 T 75 18 T 100 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="100" cy="5" fill="#F4B844" r="3.5"></circle>
+</svg>
+</div>
+</section>
+<!-- RIGHT COLUMN: Live Leaderboard (26% on lg -> 3 cols) -->
+<section class="lg:col-span-3 flex flex-col gap-space-md">
+<div class="relative rounded-xl bg-surface-midnight p-space-lg shadow-xl overflow-hidden min-h-[580px] flex flex-col justify-between">
+<div>
+<!-- Header -->
+<div class="flex items-center justify-between pb-space-sm mb-space-md"><div><span class="font-label-caps text-accent-gold uppercase tracking-widest block">LEADERBOARD</span><h3 class="font-headline-sm uppercase text-text-primary tracking-wider">LIVE RANKINGS</h3></div><span class="px-2 py-0.5 rounded-full bg-surface-container-highest font-label-code text-xs text-text-muted">18 Players</span></div>
+<!-- Leaderboard Rows List -->
+<div class="space-y-2">
+<!-- Rank 1: marco_dev -->
+<div class="p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-between gap-2 shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="text-base select-none">🥇</span>
+<img class="w-7 h-7 rounded-full object-cover shrink-0" data-alt="Cyberpunk stylized hacker avatar portrait with glowing violet visor and dark futuristic background for developer marco_dev" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBElJJKwv7614OVDmxgib_yQTy9ticQlLbn54qaGIsk0AkUptXfG8ZRFgEGX7VGf2mauPXKZDYYCaGrFyYyoQ3VM_mC5bEiEtYPVvfDQBqUKagyV93NOOxOcdtybnnCjImuIwkxY5T7ETSNhPxs33_-mZOTUDBS73V65TXD8fwMWryAjbYXDJqGmArcZ273ouUFTnJE517C1D0X8EqxDxfs6BN74S1MYu5-q6QQZAc">
+<div class="min-w-0">
+<span class="block font-label-code text-xs font-semibold text-text-primary truncate">marco_dev</span>
+<span class="block font-label-caps text-[10px] text-zone-trench truncate">Trench Code • 2,450m</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-label-code text-xs text-accent-gold font-bold block">+200m</span>
+<span class="font-label-caps text-[9px] text-text-muted">Q4 LEAP</span>
+</div>
+</div>
+<!-- Rank 2: sarah.cloud (YOU) - Violet Highlight -->
+<div class="p-2.5 rounded-lg bg-surface-container-high shadow-lg flex items-center justify-between gap-2 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary shadow-[0_0_8px_#6bd5ec]"></div>
+<div class="flex items-center gap-2 min-w-0 pl-1">
+<span class="text-base select-none">🥈</span>
+<img class="w-7 h-7 rounded-full object-cover shrink-0" data-alt="High tech software engineer portrait with cyan backlighting and clean technical minimalist aesthetic for developer sarah.cloud" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCs5hh9d_x04Nar9BHhXBz6SjYIIDAQL_CGVtO7oqtKNIlZtcpvhg-7Boks7HRcbCLEsR15WVFMR5H7NFF04KCJ6ed7KE0hh_L5YEvudL3Bg7MY_9UNph0vMYvWFhHi85MPQq7Rnr1ZdDETEX8jbpxWJHp85NzqV6AB2Dw_OiCr5a0fHoL2oienETp_PJaUm1TiH7EuY3KPQ1v2VJ3b2vrQ3d-bR5JqdzKOLtYwhw">
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-code text-xs font-bold text-text-primary truncate">sarah.cloud</span>
+<span class="px-1 py-0 rounded bg-primary-container text-on-primary-container text-[9px] font-bold">YOU</span>
+</div>
+<span class="block font-label-caps text-[10px] text-zone-engine truncate">The Silent Engine • 2,120m</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-label-code text-xs text-secondary font-bold block">+10m</span>
+<span class="font-label-caps text-[9px] text-text-muted">HOLDING #2</span>
+</div>
+</div>
+<!-- Rank 3: dev_kiran -->
+<div class="p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-between gap-2">
+<div class="flex items-center gap-2 min-w-0">
+<span class="text-base select-none">🥉</span>
+<img class="w-7 h-7 rounded-full object-cover shrink-0" data-alt="Futuristic programmer portrait with warm neon reflections on studio black background for dev_kiran" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHCvuTLVScRH6PpjcgnI-Kzbyuso9B7bZ2hi-1vCagRrCdl1yWOYsB54Ur6SEJvLOiAxdeqI2rZS2bFe5E_B9bHDz8taqrYn49iay6rmoPq5EgENGkAxJ-N4oyq0MGa7POL29dGEfK920aAGGra4SiRie6STb1RgireXSaAz8dRGUqdltgYiVD9l5RqTBRmpVihfldd8Wwf86-e3oldmGMBqIMUhW7mRKd55d3DAM">
+<div class="min-w-0">
+<span class="block font-label-code text-xs font-semibold text-text-primary truncate">dev_kiran</span>
+<span class="block font-label-caps text-[10px] text-zone-engine truncate">The Silent Engine • 1,890m</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-label-code text-xs text-text-muted block">+25m</span>
+</div>
+</div>
+<!-- Rank 4: chen_wei -->
+<div class="p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-between gap-2 opacity-90">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-code text-xs text-text-muted w-4 text-center">4</span>
+<img class="w-7 h-7 rounded-full object-cover shrink-0" data-alt="Modern tech professional avatar with subdued deep navy illumination for engineer chen_wei" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeXVLbJjO-6ZV4iqXSiv_7NhQECBPDVHaHelgUupRp-QOOGzk0LTWeS5A7f2ChxFqUwe1jNsM_w1UA17RIIlCwikvZTN6Ck2ZUHbOLCL2v33HDAl_-D3lpL5NLym1Fdkj2vuwjXrq0eaDh-OBlmFZM_k66UQ1whfiqPioz-b_M-LPPQpJH17mN6MWH2HSdNbx3eQS8QpLrX7fJ7EY_w6IdRzJJVzN-T_CsnRCaPpg">
+<div class="min-w-0">
+<span class="block font-label-code text-xs font-medium text-text-primary truncate">chen_wei</span>
+<span class="block font-label-caps text-[10px] text-zone-midnight truncate">Midnight Waters • 1,600m</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-label-code text-xs text-text-muted block">+10m</span>
+</div>
+</div>
+<!-- Rank 5: tanaka_r -->
+<div class="p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex items-center justify-between gap-2 opacity-80">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-code text-xs text-text-muted w-4 text-center">5</span>
+<img class="w-7 h-7 rounded-full object-cover shrink-0" data-alt="Digital developer avatar with electric blue hair highlights against a dark atmospheric deep water gradient for tanaka_r" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBegls2mC6i7Ui1PZ_2LTAsMAX2L5cyLqYDq2lkF0iuTGBqFx1wrr6rjrpWK_GvUTb9q7Qb1LfI4vc9i-JXSMtq8Sh_nxYmupa0wGiOAE0k9cXAGaccySIIECHUz-34u6k7VtpS6MhGDuNW4nfQMsimLK2X5oPZTDOE39SLkh1nbF_xUGwduPwvusK6d17y-uRQMGuY67W5CSkohd6LzrgtWS5eirCUmKtHH3JWM8">
+<div class="min-w-0">
+<span class="block font-label-code text-xs font-medium text-text-primary truncate">tanaka_r</span>
+<span class="block font-label-caps text-[10px] text-zone-midnight truncate">Midnight Waters • 1,250m</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-label-code text-xs text-text-muted block">+25m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Real-Time Event Ticker at Bottom -->
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest/60">
+<div class="rounded-lg p-space-sm bg-surface-container-lowest flex items-center gap-2 shadow-inner">
+<span class="material-symbols-outlined text-accent-gold text-base shrink-0 animate-bounce">celebration</span>
+<div class="min-w-0">
+<span class="block font-label-caps text-[10px] uppercase text-text-muted">Live Stream Event</span>
+<p class="font-label-code text-xs text-accent-gold truncate font-semibold">
+                marco_dev unlocked LEGENDARY rarity on Q4!
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Room Actions / Spectator Link -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-base">podium</span>
+<span class="font-body-sm text-body-sm text-text-muted">Target Trench: <strong class="text-text-primary">3,000m</strong></span>
+</div>
+<button class="px-3 py-1 rounded bg-surface-container-highest hover:bg-surface-bright text-text-primary font-label-caps text-label-caps uppercase transition-colors" onclick="document.getElementById('sound-toggle').classList.toggle('text-secondary')">
+<span class="material-symbols-outlined text-sm align-middle" id="sound-toggle">volume_up</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Synchronized Bottom Operational Strip -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-low flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="inline-flex items-center gap-1.5 font-label-code text-text-muted text-xs"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Live Battle Room K7X9M2</span><span class="text-text-muted font-body-sm text-xs">•</span><span class="font-label-code text-text-muted text-xs">Round 4 of 7</span></div><div class="flex items-center gap-space-sm"><span class="font-label-caps uppercase text-text-muted text-xs">Next Question in:</span><span class="font-label-code text-accent-gold font-bold text-xs">Auto-Advancing</span></div></div>
+<script>
+    // Live countdown micro-interaction
+    let remaining = 9;
+    const timerElement = document.getElementById('countdown-timer');
+    const timerInterval = setInterval(() => {
+      if (!timerElement) return;
+      remaining--;
+      if (remaining >= 0) {
+        timerElement.textContent = `0:0${remaining}`;
+      } else {
+        clearInterval(timerInterval);
+        timerElement.textContent = '0:00';
+        timerElement.classList.remove('text-danger-red');
+        timerElement.classList.add('text-text-muted');
+      }
+    }, 1000);
+  </script>
+</div></div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col items-center md:items-start gap-space-xs"><span class="font-headline-sm text-headline-sm text-text-primary uppercase tracking-wider">DevNet Krillion</span><p class="font-body-sm text-body-sm text-text-muted">Cisco NetConnect PUP Acceleration Framework • DevNet © 2026</p></div><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-text-muted hover:text-secondary transition-colors" href="#">Docs</a><a class="font-body-sm text-body-sm text-text-muted hover:text-secondary transition-colors" href="#">Discord</a><a class="font-body-sm text-body-sm text-text-muted hover:text-secondary transition-colors" href="#">GitHub</a></div></div></footer>
+
+</body></html>

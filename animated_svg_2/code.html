@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_SVG_START:ANIMATION_16 class="fixed inset-0 w-full h-full" --><div class="fixed inset-0 w-full h-full" id="animated-svg-ANIMATION_16" style="display:block;"><svg height="100%" style="background: transparent; overflow: visible;" viewbox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="30%" id="legendaryNebula" r="70%">
+<stop offset="0%" stop-color="#F4B844" stop-opacity="0.38"></stop>
+<stop offset="35%" stop-color="#D946EF" stop-opacity="0.25"></stop>
+<stop offset="70%" stop-color="#704DE2" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialgradient>
+<radialgradient cx="50%" cy="50%" id="goldSupernova" r="50%">
+<stop offset="0%" stop-color="#FFFFFF"></stop>
+<stop offset="25%" stop-color="#FFE680"></stop>
+<stop offset="60%" stop-color="#F4B844"></stop>
+<stop offset="90%" stop-color="#D946EF"></stop>
+<stop offset="100%" stop-color="#704DE2" stop-opacity="0"></stop>
+</radialgradient>
+<lineargradient id="legendaryTrailPlume" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0"></stop>
+<stop offset="30%" stop-color="#D946EF" stop-opacity="0.6"></stop>
+<stop offset="65%" stop-color="#F4B844" stop-opacity="0.9"></stop>
+<stop offset="90%" stop-color="#FFE680" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"></stop>
+</lineargradient>
+<filter height="240%" id="bloomLegendary" width="240%" x="-70%" y="-70%">
+<fegaussianblur in="SourceGraphic" result="glow1" stddeviation="12"></fegaussianblur>
+<fegaussianblur in="SourceGraphic" result="glow2" stddeviation="5"></fegaussianblur>
+<femerge>
+<femergenode in="glow1"></femergenode>
+<femergenode in="glow2"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<style>
+    @keyframes legendaryPlunge {
+      0% { transform: translate(-50px, -45px) scale(0.55); opacity: 0; }
+      8% { opacity: 1; }
+      70% { transform: translate(370px, 280px) scale(1.25); opacity: 1; }
+      85% { transform: translate(430px, 330px) scale(1.3); opacity: 1; }
+      100% { transform: translate(490px, 380px) scale(0.2); opacity: 0; }
+    }
+    @keyframes legendaryTailDash {
+      0% { stroke-dashoffset: 450; opacity: 0; }
+      10% { opacity: 1; }
+      75% { stroke-dashoffset: 60; opacity: 1; }
+      100% { stroke-dashoffset: -100; opacity: 0; }
+    }
+    @keyframes shockwaveGrand {
+      0% { r: 10; opacity: 1; stroke-width: 4; }
+      100% { r: 85; opacity: 0; stroke-width: 0.5; }
+    }
+    @keyframes supernovaRotation {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.35); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .legendary-meteor { animation: legendaryPlunge 3.2s cubic-bezier(0.2, 0.95, 0.25, 1) infinite; }
+    .legendary-tail { stroke-dasharray: 400; animation: legendaryTailDash 3.2s cubic-bezier(0.2, 0.95, 0.25, 1) infinite; }
+    .legendary-wave { animation: shockwaveGrand 3.2s cubic-bezier(0.15, 0.85, 0.2, 1) infinite; }
+    .legendary-star { transform-origin: 0 0; animation: supernovaRotation 1.8s linear infinite; }
+  </style>
+<!-- Frame Background -->
+<rect fill="#130D2E" height="380" rx="14" stroke="rgba(244, 184, 68, 0.55)" stroke-width="1.4" width="540"></rect>
+<rect fill="url(#legendaryNebula)" height="380" rx="14" width="540"></rect>
+<!-- Stratosphere Guides (Event Horizon / Deep Abyssal Void) -->
+<g opacity="0.45" stroke="#F4B844" stroke-dasharray="4 6" stroke-width="1">
+<path d="M 30 70 Q 270 100 510 60"></path>
+<path d="M 30 170 Q 270 200 510 160" stroke="#D946EF"></path>
+<path d="M 30 270 Q 270 300 510 255" stroke="#FFE680"></path>
+</g>
+<path d="M 40 25 L 490 355" stroke="rgba(244, 184, 68, 0.28)" stroke-dasharray="2 6" stroke-width="2"></path>
+<!-- Legendary Falling Meteor System -->
+<g class="legendary-meteor">
+<!-- Blazing Triple Comet Tail -->
+<path class="legendary-tail" d="M -220 -170 L 0 0" filter="url(#bloomLegendary)" stroke="url(#legendaryTrailPlume)" stroke-linecap="round" stroke-width="9"></path>
+<path class="legendary-tail" d="M -150 -115 L 0 0" stroke="#F4B844" stroke-linecap="round" stroke-width="4.5"></path>
+<path class="legendary-tail" d="M -90 -70 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Radiant Stardust Ejection -->
+<circle cx="-40" cy="-30" fill="#FFE680" filter="url(#bloomLegendary)" r="3.5"></circle>
+<circle cx="-75" cy="-58" fill="#F4B844" r="3"></circle>
+<circle cx="-115" cy="-90" fill="#D946EF" r="2.5"></circle>
+<circle cx="-160" cy="-125" fill="#74DDF4" r="2"></circle>
+<circle cx="-195" cy="-150" fill="#FFFFFF" r="1.5"></circle>
+<!-- Concentric Atmospheric Breakout Shockwaves -->
+<circle class="legendary-wave" cx="0" cy="0" fill="none" stroke="#F4B844"></circle>
+<circle class="legendary-wave" cx="0" cy="0" fill="none" stroke="#FFE680" style="animation-delay: 0.18s;"></circle>
+<circle class="legendary-wave" cx="0" cy="0" fill="none" stroke="#74DDF4" style="animation-delay: 0.36s;"></circle>
+<!-- Supernova Corona Glow -->
+<circle cx="0" cy="0" fill="url(#goldSupernova)" filter="url(#bloomLegendary)" r="38"></circle>
+<!-- 8-Point Diamond Plasma Core (The Falling Celestial Star) -->
+<g class="legendary-star" filter="url(#bloomLegendary)">
+<!-- Main Spikes -->
+<polygon fill="#FFFFFF" points="0,-30 5.5,-5 30,0 5.5,5 0,30 -5.5,5 -30,0 -5.5,-5"></polygon>
+<!-- Diagonal Spikes -->
+<polygon fill="#FFE680" opacity="0.9" points="-16,-16 0,-5 16,-16 5,0 16,16 0,5 -16,16 -5,0"></polygon>
+<!-- Inner Radiant Core -->
+<polygon fill="#FFFFFF" points="0,-12 12,0 0,12 -12,0"></polygon>
+</g>
+<circle cx="0" cy="0" fill="#FFFFFF" r="5"></circle>
+</g>
+<!-- HUD Telemetry -->
+<g transform="translate(24, 24)">
+<rect fill="#17133B" fill-opacity="0.9" height="48" rx="6" stroke="rgba(244, 184, 68, 0.65)" stroke-width="1.2" width="190"></rect>
+<circle cx="16" cy="18" fill="#F4B844" r="4.5"></circle>
+<text fill="#F4B844" font-family="'Orbitron', sans-serif" font-size="11" font-weight="bold" letter-spacing="1" x="28" y="22">LEGENDARY TIER</text>
+<text fill="#FFE680" font-family="'JetBrains Mono', monospace" font-size="9" x="14" y="38">FREQ &lt; 5% // +200m DEPTH (MAX)</text>
+</g>
+<g transform="translate(320, 310)">
+<rect fill="#080B24" fill-opacity="0.9" height="46" rx="6" stroke="rgba(244, 184, 68, 0.45)" stroke-width="1.2" width="195"></rect>
+<text fill="#F4B844" font-family="'JetBrains Mono', monospace" font-size="9" x="14" y="20">ALTITUDE: -3,800m+</text>
+<text fill="#B7C0D9" font-family="'JetBrains Mono', monospace" font-size="8.5" x="14" y="34">ZONE: THE DEEP ABYSS</text>
+</g>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_16 -->
+</body>
+</html>

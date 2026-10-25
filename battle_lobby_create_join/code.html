@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>DevNet Krillion</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error-container": "#ffdad6", "surface-bright": "#343752", "surface-container-low": "#161933", "surface-container-high": "#252842", "on-primary-fixed-variant": "#4c1fbe", "tertiary-container": "#6e5db2", "outline": "#938ea0", "text-muted": "#B7C0D9", "zone-engine": "#A78BFA", "tertiary-fixed-dim": "#cbbeff", "secondary-fixed": "#a6eeff", "text-primary": "#F7F8FF", "on-background": "#dfe0ff", "background": "#0e112a", "zone-midnight": "#818CF8", "secondary-container": "#269eb4", "secondary": "#6bd5ec", "on-secondary-fixed": "#001f25", "on-tertiary-fixed-variant": "#4a398c", "on-primary": "#350097", "on-surface": "#dfe0ff", "glow-violet": "rgba(112, 77, 226, 0.35)", "surface-dim": "#0e112a", "primary": "#ccbeff", "surface-container": "#1b1e37", "on-secondary-fixed-variant": "#004e5b", "error": "#ffb4ab", "on-tertiary-fixed": "#1e015f", "error-container": "#93000a", "primary-fixed-dim": "#ccbeff", "inverse-surface": "#dfe0ff", "accent-gold": "#F4B844", "zone-abyss": "#FB7185", "outline-variant": "#484554", "primary-container": "#704de2", "tertiary-fixed": "#e7deff", "zone-trench": "#D946EF", "surface-tint": "#ccbeff", "on-primary-fixed": "#1e0060", "primary-fixed": "#e7deff", "on-secondary": "#00363f", "on-primary-container": "#efe7ff", "tertiary": "#cbbeff", "zone-surface": "#38BDF8", "inverse-primary": "#6540d6", "on-tertiary-container": "#efe8ff", "surface-container-lowest": "#090c25", "on-error": "#690005", "on-surface-variant": "#cac3d7", "secondary-fixed-dim": "#6bd5ec", "zone-twilight": "#60A5FA", "border-violet": "rgba(112, 77, 226, 0.2)", "surface-variant": "#30334d", "surface": "#0e112a", "inverse-on-surface": "#2b2e49", "on-tertiary": "#332074", "surface-container-highest": "#30334d", "on-secondary-container": "#002f37", "surface-midnight": "#17133B", "danger-red": "#F87171" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-sm": "1rem", "space-md": "1rem", "space-xs": "0.25rem", "margin": "2rem", "space-xl": "2rem", "gutter": "1.5rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "body-md": [ "Inter" ], "display-hero": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "data-timer": [ "JetBrains Mono" ], "label-caps": [ "Inter" ], "body-sm": [ "Inter" ], "label-code": [ "JetBrains Mono" ], "display-hero-mobile": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "headline-md": [ "Space Grotesk" ], "data-metric": [ "JetBrains Mono" ], "body-lg": [ "Inter" ] }, "fontSize": { "body-md": [ "15px", { "lineHeight": "22px", "fontWeight": "400" } ], "display-hero": [ "64px", { "lineHeight": "72px", "letterSpacing": "0.06em", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "letterSpacing": "0.03em", "fontWeight": "600" } ], "data-timer": [ "32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "label-code": [ "13px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "0.04em", "fontWeight": "700" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "letterSpacing": "0.04em", "fontWeight": "700" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "0.05em", "fontWeight": "700" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "data-metric": [ "20px", { "lineHeight": "26px", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="DevNet Krillion Waveform Logo" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1W8JIVGfZHtdHswHQWkZZgQtXmthPrv1J_2OFW2HfSHiDNX25M-NiipJdFO3psdg-qbVu_qowNn2jcHnP9kj9mGflHpMQ1mW5EZk6-ImEdh0YsBU8bBZ9aIJnXuqUF9ljo3voVCTVTpajel4w40asS6g1uG0AHKXw2ygyt2PweQN25qfKfBgQi1zTXuLbpfDru3ujiCBYrU7SfSZQ0eEDStGqXEMgstdkn1tyuJYajdgU1zBsi9nGTkWlmbxbHSMDeVdHXFVaEe-g"/><span class="font-headline-sm text-headline-sm uppercase tracking-widest text-text-primary">DevNet Krillion</span></div><nav class="hidden md:flex items-center gap-space-sm" data-active-classes="bg-primary-container text-on-primary-container shadow-[0_0_16px_rgba(107,213,236,0.35)] rounded-lg"><a class="px-space-md py-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="daily-dive" href="#">Daily Dive</a><a aria-current="page" class="px-space-md py-space-xs font-label-caps uppercase transition-colors bg-primary-container text-on-primary-container shadow-[0_0_16px_rgba(107,213,236,0.35)] rounded-lg" data-path="battle-rooms" href="#">Battle Rooms</a><a class="px-space-md py-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="leaderboard" href="#">Leaderboard</a><a class="px-space-md py-space-xs font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="stats" href="#">Stats</a></nav><div class="flex items-center gap-space-md"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-accent-gold text-sm">local_fire_department</span><span class="font-label-code text-label-code text-accent-gold uppercase tracking-wider">5 Day Streak</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1W8JIVGfZHtdHswHQWkZZgQtXmthPrv1J_2OFW2HfSHiDNX25M-NiipJdFO3psdg-qbVu_qowNn2jcHnP9kj9mGflHpMQ1mW5EZk6-ImEdh0YsBU8bBZ9aIJnXuqUF9ljo3voVCTVTpajel4w40asS6g1uG0AHKXw2ygyt2PweQN25qfKfBgQi1zTXuLbpfDru3ujiCBYrU7SfSZQ0eEDStGqXEMgstdkn1tyuJYajdgU1zBsi9nGTkWlmbxbHSMDeVdHXFVaEe-g"/></div></div></header><main class="w-full pt-16 bg-surface"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><div class="flex flex-col w-full">
+<div class="relative w-full py-space-xl flex flex-col items-center justify-center overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-primary-container/20 blur-[130px] rounded-full pointer-events-none"></div>
+<div class="absolute top-48 -right-24 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="relative w-full max-w-2xl px-space-sm flex flex-col gap-space-lg">
+<div class="flex flex-col items-center text-center gap-space-xs">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Multiplayer Mesh Online</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg uppercase tracking-wider text-text-primary drop-shadow-[0_0_24px_rgba(112,77,226,0.45)]">
+          BATTLE ARENA
+        </h1>
+<p class="font-body-md text-body-md text-text-muted max-w-lg">
+          Join a live multiplayer trivia session or create a custom battle room for your onboarding cohort.
+        </p>
+</div>
+<div class="flex items-center justify-center p-1 rounded-xl bg-surface-container-lowest gap-1">
+<button class="flex-1 py-space-sm px-space-md rounded-lg font-label-caps text-label-caps uppercase transition-all duration-200 bg-primary-container text-text-primary shadow-[0_0_18px_rgba(112,77,226,0.35)] flex items-center justify-center gap-space-xs" id="tab-create-btn" onclick="switchMode('create')">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+          Create Room
+        </button>
+<button class="flex-1 py-space-sm px-space-md rounded-lg font-label-caps text-label-caps uppercase transition-all duration-200 text-text-muted hover:text-text-primary hover:bg-surface-container flex items-center justify-center gap-space-xs" id="tab-join-btn" onclick="switchMode('join')">
+<span class="material-symbols-outlined text-sm">hub</span>
+          Enter Room Code
+        </button>
+</div>
+<div class="bg-surface-midnight rounded-xl p-space-lg shadow-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-secondary/5 pointer-events-none"></div>
+<section class="flex flex-col gap-space-md relative z-10" id="panel-create">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-zone-engine tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tune</span> Chamber Configuration
+            </span>
+<span class="font-label-code text-label-code text-text-muted">NET-CID: 4099-B</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-caps text-label-caps uppercase text-text-muted">Cohort / Room Title</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-lg">flag</span>
+<input class="w-full bg-surface-container-lowest text-text-primary font-body-md text-body-md pl-10 pr-4 py-2.5 rounded-lg focus:outline-none focus:bg-surface-container-low transition-colors" placeholder="e.g. Cohort Theta - API Gateway Track" type="text" value="Cohort Alpha - Kubernetes Sprint"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-caps text-label-caps uppercase text-text-muted">Question Pack</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest text-text-primary font-body-sm text-body-sm px-3 py-2.5 rounded-lg appearance-none focus:outline-none cursor-pointer">
+<option selected="">DevNet Architecture &amp; CI/CD</option>
+<option>BGP Flowspec &amp; Routing Engine</option>
+<option>Telemetry Streaming &amp; gRPC</option>
+<option>Cisco ACI &amp; Cloud Network Controller</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-text-muted pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-caps text-label-caps uppercase text-text-muted">Max Cohort Slots</label>
+<div class="flex items-center justify-between bg-surface-container-lowest px-3 py-1.5 rounded-lg">
+<span class="font-data-metric text-data-metric text-secondary" id="player-count-label">16 / 50</span>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-high text-text-primary hover:bg-surface-bright flex items-center justify-center font-bold text-xs" onclick="adjustPlayers(-4)" type="button">-</button>
+<button class="w-7 h-7 rounded bg-surface-container-high text-text-primary hover:bg-surface-bright flex items-center justify-center font-bold text-xs" onclick="adjustPlayers(4)" type="button">+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-label-caps text-label-caps uppercase text-text-muted">Pacing Per Question</label>
+<span class="font-label-code text-label-code text-zone-surface" id="pacing-readout">25 Seconds</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="pacing-btn py-2 rounded-lg bg-surface-container-lowest text-text-muted font-label-code text-label-code hover:text-text-primary" onclick="setPacing(15, this)" type="button">15s Blitz</button>
+<button class="pacing-btn py-2 rounded-lg bg-primary-container text-text-primary font-label-code text-label-code shadow-[0_0_12px_rgba(112,77,226,0.3)]" onclick="setPacing(25, this)" type="button">25s Standard</button>
+<button class="pacing-btn py-2 rounded-lg bg-surface-container-lowest text-text-muted font-label-code text-label-code hover:text-text-primary" onclick="setPacing(45, this)" type="button">45s Deep Dive</button>
+</div>
+</div>
+<button class="mt-space-xs w-full py-3.5 px-space-md rounded-lg bg-primary-container hover:bg-inverse-primary text-text-primary font-label-caps text-label-caps uppercase tracking-wider transition-all duration-200 shadow-[0_0_20px_rgba(112,77,226,0.4)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+            Create Battle Room
+          </button>
+</section>
+<div class="relative my-space-lg flex items-center justify-center">
+<div class="w-full h-px bg-gradient-to-r from-transparent via-tertiary-container/40 to-transparent"></div>
+<span class="absolute px-space-sm bg-surface-midnight font-label-caps text-label-caps uppercase text-text-muted tracking-widest">
+            Or Join Existing Room
+          </span>
+</div>
+<section class="flex flex-col gap-space-md relative z-10" id="panel-join">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase text-text-muted">Enter Tactical Room Key</label>
+<span class="font-label-code text-label-code text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">encrypted</span> SHA-256 Validated
+            </span>
+</div>
+<div class="grid grid-cols-6 gap-2 sm:gap-3">
+<input class="code-box h-14 bg-surface-container-lowest text-center font-data-timer text-data-timer text-secondary rounded-lg uppercase focus:bg-surface-container-low focus:outline-none selection:bg-transparent" maxlength="1" value="K"/>
+<input class="code-box h-14 bg-surface-container-lowest text-center font-data-timer text-data-timer text-secondary rounded-lg uppercase focus:bg-surface-container-low focus:outline-none selection:bg-transparent" maxlength="1" value="7"/>
+<input class="code-box h-14 bg-surface-container-lowest text-center font-data-timer text-data-timer text-secondary rounded-lg uppercase focus:bg-surface-container-low focus:outline-none selection:bg-transparent" maxlength="1" value="X"/>
+<input class="code-box h-14 bg-surface-container-lowest text-center font-data-timer text-data-timer text-secondary rounded-lg uppercase focus:bg-surface-container-low focus:outline-none selection:bg-transparent" maxlength="1" value="9"/>
+<input class="code-box h-14 bg-surface-container-lowest text-center font-data-timer text-data-timer text-secondary rounded-lg uppercase focus:bg-surface-container-low focus:outline-none selection:bg-transparent" maxlength="1" value="M"/>
+<input class="code-box h-14 bg-surface-container-lowest text-center font-data-timer text-data-timer text-secondary rounded-lg uppercase focus:bg-surface-container-low focus:outline-none selection:bg-transparent" maxlength="1" value="2"/>
+</div>
+<button class="w-full py-3.5 px-space-md rounded-lg bg-surface-container-low hover:bg-secondary-container/20 text-secondary font-label-caps text-label-caps uppercase tracking-wider transition-all duration-200 shadow-[0_0_16px_rgba(107,213,236,0.2)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">login</span>
+            Enter Room
+          </button>
+</section>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm uppercase text-text-primary tracking-wide">Public Live Chambers</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-code text-label-code text-secondary">2 Available</span>
+</div>
+<button class="font-label-caps text-label-caps uppercase text-text-muted hover:text-secondary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm">refresh</span> Refresh Mesh
+          </button>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<div class="p-space-md rounded-xl bg-surface-midnight hover:bg-surface-container transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-zone-twilight">
+<span class="material-symbols-outlined text-2xl">waves</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-text-primary group-hover:text-secondary transition-colors">Cohort-Beta Dive</span>
+<span class="font-label-code text-label-code px-2 py-0.5 rounded bg-surface-container-lowest text-secondary">B8N2Q1</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">account_circle</span> alex.dev</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 8 / 16 Players</span>
+<span class="hidden sm:inline-flex items-center gap-1"><span class="material-symbols-outlined text-sm">timer</span> Starts in 2m</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-gold/15 font-label-caps text-label-caps uppercase text-accent-gold">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse"></span>
+                Waiting (Starts in 2m)
+              </span>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-secondary hover:text-on-secondary font-label-caps text-label-caps uppercase text-text-primary transition-all">
+                Join
+              </button>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-midnight hover:bg-surface-container transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-zone-engine">
+<span class="material-symbols-outlined text-2xl">device_hub</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-text-primary group-hover:text-zone-engine transition-colors">NetConnect Core Trivia</span>
+<span class="font-label-code text-label-code px-2 py-0.5 rounded bg-surface-container-lowest text-zone-engine">NC44X9</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">account_circle</span> maria_c</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> 14 / 25 Players</span>
+<span class="hidden sm:inline-flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> On Demand</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-space-md">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/15 font-label-caps text-label-caps uppercase text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Waiting
+              </span>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-secondary hover:text-on-secondary font-label-caps text-label-caps uppercase text-text-primary transition-all">
+                Join
+              </button>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container-high text-accent-gold">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-text-muted">Active Season Reward Track</span>
+<span class="font-body-sm text-body-sm text-text-primary">Cohort victories grant +350 Abyss Depth telemetry score</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-accent-gold font-semibold tracking-wider">LEVEL 04</span>
+</div>
+</div>
+</div>
+<script>
+    let players = 16;
+    function adjustPlayers(delta) {
+      players = Math.max(4, Math.min(50, players + delta));
+      const label = document.getElementById('player-count-label');
+      if (label) label.textContent = players + ' / 50';
+    }
+
+    function setPacing(seconds, btn) {
+      const readout = document.getElementById('pacing-readout');
+      if (readout) readout.textContent = seconds + ' Seconds';
+      document.querySelectorAll('.pacing-btn').forEach(b => {
+        b.className = 'pacing-btn py-2 rounded-lg bg-surface-container-lowest text-text-muted font-label-code text-label-code hover:text-text-primary';
+      });
+      btn.className = 'pacing-btn py-2 rounded-lg bg-primary-container text-text-primary font-label-code text-label-code shadow-[0_0_12px_rgba(112,77,226,0.3)]';
+    }
+
+    function switchMode(mode) {
+      const createBtn = document.getElementById('tab-create-btn');
+      const joinBtn = document.getElementById('tab-join-btn');
+      const createSec = document.getElementById('panel-create');
+      const joinSec = document.getElementById('panel-join');
+
+      if (mode === 'create') {
+        createBtn.className = 'flex-1 py-space-sm px-space-md rounded-lg font-label-caps text-label-caps uppercase transition-all duration-200 bg-primary-container text-text-primary shadow-[0_0_18px_rgba(112,77,226,0.35)] flex items-center justify-center gap-space-xs';
+        joinBtn.className = 'flex-1 py-space-sm px-space-md rounded-lg font-label-caps text-label-caps uppercase transition-all duration-200 text-text-muted hover:text-text-primary hover:bg-surface-container flex items-center justify-center gap-space-xs';
+        createSec.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        joinBtn.className = 'flex-1 py-space-sm px-space-md rounded-lg font-label-caps text-label-caps uppercase transition-all duration-200 bg-secondary text-on-secondary shadow-[0_0_18px_rgba(107,213,236,0.35)] flex items-center justify-center gap-space-xs';
+        createBtn.className = 'flex-1 py-space-sm px-space-md rounded-lg font-label-caps text-label-caps uppercase transition-all duration-200 text-text-muted hover:text-text-primary hover:bg-surface-container flex items-center justify-center gap-space-xs';
+        joinSec.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    const boxes = document.querySelectorAll('.code-box');
+    boxes.forEach((box, index) => {
+      box.addEventListener('input', (e) => {
+        if (e.target.value.length === 1 && index < boxes.length - 1) {
+          boxes[index + 1].focus();
+        }
+      });
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          boxes[index - 1].focus();
+        }
+      });
+    });
+  </script>
+</div></div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col items-center md:items-start gap-space-xs"><span class="font-headline-sm text-headline-sm text-text-primary uppercase tracking-wider">DevNet Krillion</span><p class="font-body-sm text-body-sm text-text-muted">Cisco NetConnect PUP Acceleration Framework • DevNet © 2026</p></div><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-text-muted hover:text-secondary transition-colors" href="#">Docs</a><a class="font-body-sm text-body-sm text-text-muted hover:text-secondary transition-colors" href="#">Discord</a><a class="font-body-sm text-body-sm text-text-muted hover:text-secondary transition-colors" href="#">GitHub</a></div></div></footer></body></html>

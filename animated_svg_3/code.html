@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_SVG_START:ANIMATION_17 class="fixed inset-0 w-full h-full" --><div class="fixed inset-0 w-full h-full" id="animated-svg-ANIMATION_17" style="display:block;"><svg height="100%" style="background: transparent; overflow: visible;" viewbox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="35%" id="rareNebula" r="65%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0.32"></stop>
+<stop offset="45%" stop-color="#17133B" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialgradient>
+<lineargradient id="rareTrail" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0"></stop>
+<stop offset="30%" stop-color="#704DE2" stop-opacity="0.5"></stop>
+<stop offset="65%" stop-color="#B6A4FF" stop-opacity="0.8"></stop>
+<stop offset="90%" stop-color="#74DDF4" stop-opacity="0.95"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"></stop>
+</lineargradient>
+<filter height="220%" id="bloomRare" width="220%" x="-60%" y="-60%">
+<fegaussianblur in="SourceGraphic" result="blur1" stddeviation="8"></fegaussianblur>
+<fegaussianblur in="SourceGraphic" result="blur2" stddeviation="3"></fegaussianblur>
+<femerge>
+<femergenode in="blur1"></femergenode>
+<femergenode in="blur2"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<style>
+    @keyframes rarePlunge {
+      0% { transform: translate(-40px, -35px) scale(0.65); opacity: 0; }
+      10% { opacity: 1; }
+      75% { transform: translate(360px, 270px) scale(1.08); opacity: 1; }
+      100% { transform: translate(460px, 350px) scale(0.3); opacity: 0; }
+    }
+    @keyframes rareTrailStagger {
+      0% { stroke-dashoffset: 360; opacity: 0; }
+      15% { opacity: 0.95; }
+      75% { stroke-dashoffset: 50; opacity: 0.95; }
+      100% { stroke-dashoffset: -70; opacity: 0; }
+    }
+    @keyframes rareRingWave {
+      0% { r: 5; opacity: 0.8; stroke-width: 3; }
+      100% { r: 45; opacity: 0; stroke-width: 0.5; }
+    }
+    @keyframes rareStarPulse {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.22); }
+    }
+    .rare-meteor { animation: rarePlunge 3.8s cubic-bezier(0.22, 0.85, 0.35, 1) infinite; }
+    .rare-tail-line { stroke-dasharray: 320; animation: rareTrailStagger 3.8s cubic-bezier(0.22, 0.85, 0.35, 1) infinite; }
+    .rare-ring { animation: rareRingWave 3.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
+    .rare-diamond { transform-origin: 0 0; animation: rareStarPulse 2.8s linear infinite; }
+  </style>
+<!-- Frame Background -->
+<rect fill="#0E1235" height="380" rx="14" stroke="rgba(112, 77, 226, 0.35)" stroke-width="1.2" width="540"></rect>
+<rect fill="url(#rareNebula)" height="380" rx="14" width="540"></rect>
+<!-- Stratosphere Guides (Midnight Waters & Gravitational Shear) -->
+<g opacity="0.35" stroke="#704DE2" stroke-dasharray="4 6" stroke-width="1">
+<path d="M 30 80 Q 270 110 510 70"></path>
+<path d="M 30 180 Q 270 210 510 170" stroke="#B6A4FF"></path>
+<path d="M 30 290 Q 270 320 510 270" stroke="#74DDF4"></path>
+</g>
+<path d="M 40 30 L 490 350" stroke="rgba(182, 164, 255, 0.18)" stroke-dasharray="2 6" stroke-width="1.5"></path>
+<!-- Falling Rare Meteor System -->
+<g class="rare-meteor">
+<!-- Multilayer Ion Wake -->
+<path class="rare-tail-line" d="M -170 -130 L 0 0" filter="url(#bloomRare)" stroke="url(#rareTrail)" stroke-linecap="round" stroke-width="6"></path>
+<path class="rare-tail-line" d="M -110 -85 L 0 0" stroke="#B6A4FF" stroke-linecap="round" stroke-width="2.5"></path>
+<path class="rare-tail-line" d="M -60 -45 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="1.8"></path>
+<!-- Stardust Sparks -->
+<circle cx="-35" cy="-28" fill="#74DDF4" filter="url(#bloomRare)" r="2.5"></circle>
+<circle cx="-70" cy="-55" fill="#B6A4FF" r="2.2"></circle>
+<circle cx="-110" cy="-85" fill="#704DE2" r="1.8"></circle>
+<circle cx="-140" cy="-108" fill="#74DDF4" r="1.2"></circle>
+<!-- Atmospheric Entry Shockwave -->
+<circle class="rare-ring" cx="0" cy="0" fill="none" stroke="#B6A4FF"></circle>
+<circle class="rare-ring" cx="0" cy="0" fill="none" stroke="#704DE2" style="animation-delay: 0.25s;"></circle>
+<!-- Radiant Plasma Core -->
+<circle cx="0" cy="0" fill="#704DE2" filter="url(#bloomRare)" opacity="0.35" r="26"></circle>
+<circle cx="0" cy="0" fill="#B6A4FF" filter="url(#bloomRare)" opacity="0.75" r="15"></circle>
+<!-- 8-Point Diamond Star -->
+<g class="rare-diamond" filter="url(#bloomRare)">
+<polygon fill="#FFFFFF" points="0,-22 4,-3 22,0 4,3 0,22 -4,3 -22,0 -4,-3"></polygon>
+<polygon fill="#74DDF4" opacity="0.85" points="-12,-12 0,-3 12,-12 3,0 12,12 0,3 -12,12 -3,0"></polygon>
+<polygon fill="#FFFFFF" points="0,-8 8,0 0,8 -8,0"></polygon>
+</g>
+<circle cx="0" cy="0" fill="#FFFFFF" r="3.5"></circle>
+</g>
+<!-- HUD Telemetry -->
+<g transform="translate(24, 24)">
+<rect fill="#17133B" fill-opacity="0.85" height="48" rx="6" stroke="rgba(112, 77, 226, 0.45)" stroke-width="1" width="180"></rect>
+<circle cx="16" cy="18" fill="#B6A4FF" r="4"></circle>
+<text fill="#B6A4FF" font-family="'Orbitron', sans-serif" font-size="11" font-weight="bold" letter-spacing="1" x="28" y="22">RARE TIER</text>
+<text fill="#B7C0D9" font-family="'JetBrains Mono', monospace" font-size="9" x="14" y="38">FREQ: 10% - 25% // +50m DEPTH</text>
+</g>
+<g transform="translate(330, 310)">
+<rect fill="#080B24" fill-opacity="0.9" height="46" rx="6" stroke="rgba(112, 77, 226, 0.3)" stroke-width="1" width="185"></rect>
+<text fill="#B6A4FF" font-family="'JetBrains Mono', monospace" font-size="9" x="14" y="20">ALTITUDE: -1,850m</text>
+<text fill="#B7C0D9" font-family="'JetBrains Mono', monospace" font-size="8.5" x="14" y="34">ZONE: MIDNIGHT WATERS</text>
+</g>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_17 -->
+</body>
+</html>
