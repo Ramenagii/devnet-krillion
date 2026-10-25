@@ -88,9 +88,25 @@ function App() {
         }
         const { data, error } = await supabase.rpc('start_daily_run', { p_run_date: todayKey })
         if (error) throw error
+        const activeRunId = typeof data === 'string' ? data : (data as { id?: string })?.id
+        if (!activeRunId) throw new Error('Could not open today’s dive.')
+        const [runResult, answersResult] = await Promise.all([
+          supabase.from('daily_runs').select('score').eq('id', activeRunId).maybeSingle(),
+          supabase.from('daily_answers').select('question_index').eq('run_id', activeRunId).eq('is_scored', true),
+        ])
+        if (runResult.error || answersResult.error) throw runResult.error ?? answersResult.error
+        const completed = new Set((answersResult.data ?? []).map((row) => row.question_index))
+        const nextQuestion = Array.from({ length: 7 }, (_, index) => index).find((index) => !completed.has(index)) ?? 7
         if (alive) {
           setDailyQuestions(rows.map((question) => ({ prompt: question.prompt!, topic: question.topic!, hint: question.hint })))
-          setRunId(typeof data === 'string' ? data : (data as { id?: string })?.id ?? null)
+          setRunId(activeRunId)
+          setScore(runResult.data?.score ?? 0)
+          if (nextQuestion === 7) {
+            setQuestionIndex(6)
+            setGameDone(true)
+          } else {
+            setQuestionIndex(nextQuestion)
+          }
           setCloudStatus('Synced')
           setQuestionSetState('ready')
         }
