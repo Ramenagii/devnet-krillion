@@ -194,7 +194,7 @@ function App() {
         body: { runId, questionIndex, answer: cleaned },
       })
       if (error) {
-        setFeedback({ kind: 'error', text: 'Gemini could not score that answer. Try again.' })
+        setFeedback({ kind: 'error', text: 'Could not score that answer. Try again.' })
         setLoading(false)
         return
       }
