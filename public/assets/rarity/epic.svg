@@ -1,0 +1,84 @@
+<svg height="100%" style="background: transparent; overflow: visible;" viewBox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient cx="50%" cy="35%" id="epicNebula" r="65%">
+<stop offset="0%" stop-color="#D946EF" stop-opacity="0.35"></stop>
+<stop offset="50%" stop-color="#704DE2" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="epicTrail" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0"></stop>
+<stop offset="35%" stop-color="#D946EF" stop-opacity="0.6"></stop>
+<stop offset="70%" stop-color="#F43F5E" stop-opacity="0.85"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"></stop>
+</linearGradient>
+<filter height="220%" id="intenseEpicGlow" width="220%" x="-60%" y="-60%">
+<feGaussianBlur in="SourceGraphic" result="blur1" stdDeviation="10"></feGaussianBlur>
+<feGaussianBlur in="SourceGraphic" result="blur2" stdDeviation="4"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="blur1"></feMergeNode>
+<feMergeNode in="blur2"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>
+    @keyframes epicDescent {
+      0% { transform: translate(-45px, -40px) scale(0.6); opacity: 0; }
+      8% { opacity: 1; }
+      75% { transform: translate(370px, 280px) scale(1.15); opacity: 1; }
+      100% { transform: translate(470px, 360px) scale(0.25); opacity: 0; }
+    }
+    @keyframes epicTailStretch {
+      0% { stroke-dashoffset: 400; opacity: 0; }
+      12% { opacity: 1; }
+      75% { stroke-dashoffset: 55; opacity: 1; }
+      100% { stroke-dashoffset: -80; opacity: 0; }
+    }
+    @keyframes epicShockwave {
+      0% { r: 8; opacity: 0.9; stroke-width: 3.5; }
+      100% { r: 65; opacity: 0; stroke-width: 0.5; }
+    }
+    @keyframes epicStarRotation {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.28); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .epic-meteor { animation: epicDescent 3.5s cubic-bezier(0.2, 0.9, 0.3, 1) 1.05s 1 both; }
+    .epic-tail { stroke-dasharray: 360; animation: epicTailStretch 3.5s cubic-bezier(0.2, 0.9, 0.3, 1) 1.05s 1 both; }
+    .epic-core-star { transform-origin: 0 0; animation: epicStarRotation 2.2s linear 1.05s 1 both; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+<!-- Frame Background -->
+<rect fill="#100F36" fill-opacity="0.38" height="380" rx="14" stroke="rgba(217, 70, 239, 0.4)" stroke-width="1.2" width="540"></rect>
+<rect fill="url(#epicNebula)" height="380" rx="14" width="540"></rect>
+
+
+
+<!-- Falling Epic Meteor System -->
+<g class="epic-meteor">
+<!-- Plasma Jet Tail -->
+<path class="epic-tail" d="M -190 -145 L 0 0" filter="url(#intenseEpicGlow)" stroke="url(#epicTrail)" stroke-linecap="round" stroke-width="7"></path>
+<path class="epic-tail" d="M -130 -100 L 0 0" stroke="#F43F5E" stroke-linecap="round" stroke-width="3"></path>
+<path class="epic-tail" d="M -75 -55 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2"></path>
+<!-- Stardust Sparks -->
+<circle cx="-35" cy="-27" fill="#D946EF" filter="url(#intenseEpicGlow)" r="3"></circle>
+<circle cx="-70" cy="-55" fill="#F43F5E" r="2.5"></circle>
+<circle cx="-110" cy="-85" fill="#704DE2" r="2"></circle>
+<circle cx="-145" cy="-110" fill="#FFFFFF" r="1.5"></circle>
+<!-- Double Atmospheric Shockwave -->
+
+
+<!-- Radiant Corona -->
+<circle cx="0" cy="0" fill="#D946EF" filter="url(#intenseEpicGlow)" opacity="0.35" r="30"></circle>
+<circle cx="0" cy="0" fill="#F43F5E" filter="url(#intenseEpicGlow)" opacity="0.65" r="18"></circle>
+<!-- 8-Point Diamond Star Core -->
+<g class="epic-core-star" filter="url(#intenseEpicGlow)">
+<polygon fill="#FFFFFF" points="0,-25 4.5,-4 25,0 4.5,4 0,25 -4.5,4 -25,0 -4.5,-4"></polygon>
+<polygon fill="#D946EF" opacity="0.9" points="-14,-14 0,-4 14,-14 4,0 14,14 0,4 -14,14 -4,0"></polygon>
+<polygon fill="#FFFFFF" points="0,-10 10,0 0,10 -10,0"></polygon>
+</g>
+<circle cx="0" cy="0" fill="#FFFFFF" r="4"></circle>
+</g>
+
+
+</svg>

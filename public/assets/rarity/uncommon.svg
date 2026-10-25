@@ -1,0 +1,72 @@
+<svg height="100%" style="background: transparent; overflow: visible;" viewBox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient cx="50%" cy="40%" id="uncommonNebula" r="60%">
+<stop offset="0%" stop-color="#74DDF4" stop-opacity="0.22"></stop>
+<stop offset="50%" stop-color="#17133B" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="uncommonTrail" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#60a5fa" stop-opacity="0"></stop>
+<stop offset="45%" stop-color="#74DDF4" stop-opacity="0.6"></stop>
+<stop offset="85%" stop-color="#B6A4FF" stop-opacity="0.75"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"></stop>
+</linearGradient>
+<filter height="200%" id="glowUncommon" width="200%" x="-50%" y="-50%">
+<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="6"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="blur"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>
+    @keyframes uncommonFall {
+      0% { transform: translate(-35px, -30px) scale(0.7); opacity: 0; }
+      12% { opacity: 1; }
+      75% { transform: translate(350px, 260px) scale(1.0); opacity: 1; }
+      100% { transform: translate(440px, 330px) scale(0.35); opacity: 0; }
+    }
+    @keyframes uncommonTrailDash {
+      0% { stroke-dashoffset: 320; opacity: 0; }
+      15% { opacity: 0.85; }
+      80% { stroke-dashoffset: 45; opacity: 0.85; }
+      100% { stroke-dashoffset: -50; opacity: 0; }
+    }
+    @keyframes pulseCoreUncommon {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(90deg) scale(1.15); }
+    }
+    .uncommon-meteor { animation: uncommonFall 4.0s cubic-bezier(0.3, 0.8, 0.4, 1) 1.05s 1 both; }
+    .uncommon-tail { stroke-dasharray: 280; animation: uncommonTrailDash 4.0s cubic-bezier(0.3, 0.8, 0.4, 1) 1.05s 1 both; }
+    .uncommon-spin { transform-origin: 0 0; animation: pulseCoreUncommon 3s linear 1.05s 1 both; }
+50% { opacity: 0.45; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+<!-- Card Frame -->
+<rect fill="#0C1032" fill-opacity="0.38" height="380" rx="14" stroke="rgba(116, 221, 244, 0.3)" stroke-width="1.2" width="540"></rect>
+<rect fill="url(#uncommonNebula)" height="380" rx="14" width="540"></rect>
+
+
+
+<!-- Meteor Assembly -->
+<g class="uncommon-meteor">
+<!-- Tail Plume -->
+<path class="uncommon-tail" d="M -150 -115 L 0 0" filter="url(#glowUncommon)" stroke="url(#uncommonTrail)" stroke-linecap="round" stroke-width="4.5"></path>
+<path class="uncommon-tail" d="M -90 -70 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2"></path>
+<!-- Particle Sparks -->
+<circle cx="-35" cy="-27" fill="#74DDF4" filter="url(#glowUncommon)" r="2"></circle>
+<circle cx="-65" cy="-50" fill="#60a5fa" r="1.5"></circle>
+<circle cx="-100" cy="-77" fill="#B6A4FF" r="1.2"></circle>
+<!-- Halo & Corona -->
+<circle cx="0" cy="0" fill="#74DDF4" filter="url(#glowUncommon)" opacity="0.3" r="22"></circle>
+<circle cx="0" cy="0" fill="#60a5fa" opacity="0.6" r="12"></circle>
+<!-- Rotating Star Diamond -->
+<g class="uncommon-spin">
+<polygon fill="#FFFFFF" filter="url(#glowUncommon)" points="0,-16 4.5,-2 16,0 4.5,2 0,16 -4.5,2 -16,0 -4.5,-2"></polygon>
+<polygon fill="#74DDF4" opacity="0.85" points="-8,-8 0,-2 8,-8 2,0 8,8 0,2 -8,8 -2,0"></polygon>
+</g>
+<circle cx="0" cy="0" fill="#FFFFFF" r="3"></circle>
+</g>
+
+
+</svg>

@@ -1,0 +1,98 @@
+<svg height="100%" style="background: transparent; overflow: visible;" viewBox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient cx="50%" cy="30%" id="legendaryNebula" r="70%">
+<stop offset="0%" stop-color="#F4B844" stop-opacity="0.38"></stop>
+<stop offset="35%" stop-color="#D946EF" stop-opacity="0.25"></stop>
+<stop offset="70%" stop-color="#704DE2" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient cx="50%" cy="50%" id="goldSupernova" r="50%">
+<stop offset="0%" stop-color="#FFFFFF"></stop>
+<stop offset="25%" stop-color="#FFE680"></stop>
+<stop offset="60%" stop-color="#F4B844"></stop>
+<stop offset="90%" stop-color="#D946EF"></stop>
+<stop offset="100%" stop-color="#704DE2" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="legendaryTrailPlume" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0"></stop>
+<stop offset="30%" stop-color="#D946EF" stop-opacity="0.6"></stop>
+<stop offset="65%" stop-color="#F4B844" stop-opacity="0.9"></stop>
+<stop offset="90%" stop-color="#FFE680" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"></stop>
+</linearGradient>
+<filter height="240%" id="bloomLegendary" width="240%" x="-70%" y="-70%">
+<feGaussianBlur in="SourceGraphic" result="glow1" stdDeviation="12"></feGaussianBlur>
+<feGaussianBlur in="SourceGraphic" result="glow2" stdDeviation="5"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="glow1"></feMergeNode>
+<feMergeNode in="glow2"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>
+    @keyframes legendaryPlunge {
+      0% { transform: translate(-50px, -45px) scale(0.55); opacity: 0; }
+      8% { opacity: 1; }
+      70% { transform: translate(370px, 280px) scale(1.25); opacity: 1; }
+      85% { transform: translate(430px, 330px) scale(1.3); opacity: 1; }
+      100% { transform: translate(490px, 380px) scale(0.2); opacity: 0; }
+    }
+    @keyframes legendaryTailDash {
+      0% { stroke-dashoffset: 450; opacity: 0; }
+      10% { opacity: 1; }
+      75% { stroke-dashoffset: 60; opacity: 1; }
+      100% { stroke-dashoffset: -100; opacity: 0; }
+    }
+    @keyframes shockwaveGrand {
+      0% { r: 10; opacity: 1; stroke-width: 4; }
+      100% { r: 85; opacity: 0; stroke-width: 0.5; }
+    }
+    @keyframes supernovaRotation {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.35); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .legendary-meteor { animation: legendaryPlunge 3.2s cubic-bezier(0.2, 0.95, 0.25, 1) 1.05s 1 both; }
+    .legendary-tail { stroke-dasharray: 400; animation: legendaryTailDash 3.2s cubic-bezier(0.2, 0.95, 0.25, 1) 1.05s 1 both; }
+    .legendary-star { transform-origin: 0 0; animation: supernovaRotation 1.8s linear 1.05s 1 both; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+<!-- Frame Background -->
+<rect fill="#130D2E" fill-opacity="0.38" height="380" rx="14" stroke="rgba(244, 184, 68, 0.55)" stroke-width="1.4" width="540"></rect>
+<rect fill="url(#legendaryNebula)" height="380" rx="14" width="540"></rect>
+
+
+
+<!-- Legendary Falling Meteor System -->
+<g class="legendary-meteor">
+<!-- Blazing Triple Comet Tail -->
+<path class="legendary-tail" d="M -220 -170 L 0 0" filter="url(#bloomLegendary)" stroke="url(#legendaryTrailPlume)" stroke-linecap="round" stroke-width="9"></path>
+<path class="legendary-tail" d="M -150 -115 L 0 0" stroke="#F4B844" stroke-linecap="round" stroke-width="4.5"></path>
+<path class="legendary-tail" d="M -90 -70 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Radiant Stardust Ejection -->
+<circle cx="-40" cy="-30" fill="#FFE680" filter="url(#bloomLegendary)" r="3.5"></circle>
+<circle cx="-75" cy="-58" fill="#F4B844" r="3"></circle>
+<circle cx="-115" cy="-90" fill="#D946EF" r="2.5"></circle>
+<circle cx="-160" cy="-125" fill="#74DDF4" r="2"></circle>
+<circle cx="-195" cy="-150" fill="#FFFFFF" r="1.5"></circle>
+<!-- Concentric Atmospheric Breakout Shockwaves -->
+
+
+
+<!-- Supernova Corona Glow -->
+<circle cx="0" cy="0" fill="url(#goldSupernova)" filter="url(#bloomLegendary)" r="38"></circle>
+<!-- 8-Point Diamond Plasma Core (The Falling Celestial Star) -->
+<g class="legendary-star" filter="url(#bloomLegendary)">
+<!-- Main Spikes -->
+<polygon fill="#FFFFFF" points="0,-30 5.5,-5 30,0 5.5,5 0,30 -5.5,5 -30,0 -5.5,-5"></polygon>
+<!-- Diagonal Spikes -->
+<polygon fill="#FFE680" opacity="0.9" points="-16,-16 0,-5 16,-16 5,0 16,16 0,5 -16,16 -5,0"></polygon>
+<!-- Inner Radiant Core -->
+<polygon fill="#FFFFFF" points="0,-12 12,0 0,12 -12,0"></polygon>
+</g>
+<circle cx="0" cy="0" fill="#FFFFFF" r="5"></circle>
+</g>
+
+
+</svg>

@@ -1,0 +1,71 @@
+<svg height="100%" style="background: transparent; overflow: visible;" viewBox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient cx="50%" cy="40%" id="commonNebula" r="55%">
+<stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15"></stop>
+<stop offset="70%" stop-color="#080B24" stop-opacity="0.05"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="commonTrail" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#38bdf8" stop-opacity="0"></stop>
+<stop offset="60%" stop-color="#38bdf8" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.85"></stop>
+</linearGradient>
+<filter height="180%" id="softGlowCommon" width="180%" x="-40%" y="-40%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="4"></feGaussianBlur>
+<feMerge>
+<feMergeNode></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>
+    @keyframes commonDrift {
+      0% { transform: translate(-30px, -25px) scale(0.7); opacity: 0; }
+      15% { opacity: 0.85; }
+      80% { transform: translate(320px, 220px) scale(0.9); opacity: 0.85; }
+      100% { transform: translate(400px, 280px) scale(0.4); opacity: 0; }
+    }
+    @keyframes commonTrailDash {
+      0% { stroke-dashoffset: 260; opacity: 0; }
+      20% { opacity: 0.7; }
+      80% { stroke-dashoffset: 40; opacity: 0.7; }
+      100% { stroke-dashoffset: -40; opacity: 0; }
+    }
+    .common-meteor { animation: commonDrift 4.5s ease-in-out 1.05s 1 both; }
+    .common-tail { stroke-dasharray: 220; animation: commonTrailDash 4.5s ease-in-out 1.05s 1 both; }
+50% { opacity: 0.35; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+<!-- Card Backdrop Frame -->
+<rect fill="#0D1130" fill-opacity="0.38" height="380" rx="14" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.2" width="540"></rect>
+<rect fill="url(#commonNebula)" height="380" rx="14" width="540"></rect>
+<!-- Orbital Altitude Track (Surface Stratosphere) -->
+
+
+<!-- Static Stars -->
+<g fill="#74DDF4" opacity="0.6">
+<circle cx="90" cy="80" r="1.5"></circle>
+<circle cx="210" cy="60" r="1"></circle>
+<circle cx="430" cy="90" r="1.5"></circle>
+<circle cx="120" cy="310" r="1"></circle>
+<circle cx="480" cy="270" r="1.2"></circle>
+</g>
+<!-- Falling Meteor System -->
+<g class="common-meteor">
+<!-- Faint Ion Tail -->
+<path class="common-tail" d="M -110 -75 L 0 0" filter="url(#softGlowCommon)" stroke="url(#commonTrail)" stroke-linecap="round" stroke-width="3"></path>
+<path class="common-tail" d="M -60 -40 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Micro Particle Sparkles -->
+<circle cx="-25" cy="-17" fill="#38bdf8" opacity="0.6" r="1.5"></circle>
+<circle cx="-50" cy="-34" fill="#74DDF4" opacity="0.4" r="1"></circle>
+<!-- Common Star Core (Soft Cyan Spark) -->
+<circle cx="0" cy="0" fill="#38bdf8" filter="url(#softGlowCommon)" opacity="0.25" r="16"></circle>
+<circle cx="0" cy="0" fill="#74DDF4" opacity="0.7" r="9"></circle>
+<!-- 4-point Diamond Core -->
+<polygon fill="#FFFFFF" points="0,-12 3.5,0 0,12 -3.5,0"></polygon>
+<polygon fill="#FFFFFF" points="-12,0 0,3.5 12,0 0,-3.5"></polygon>
+<circle cx="0" cy="0" fill="#FFFFFF" r="2.5"></circle>
+</g>
+
+
+</svg>

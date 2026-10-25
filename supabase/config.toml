@@ -2,3 +2,9 @@ project_id = "hhsvuzjxabijhssxfubi"
 
 [functions.score-answer]
 verify_jwt = true
+
+[functions.score-battle-answer]
+verify_jwt = true
+
+[functions.generate-daily-questions]
+verify_jwt = false

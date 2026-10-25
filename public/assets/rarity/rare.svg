@@ -1,0 +1,84 @@
+<svg height="100%" style="background: transparent; overflow: visible;" viewBox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient cx="50%" cy="35%" id="rareNebula" r="65%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0.32"></stop>
+<stop offset="45%" stop-color="#17133B" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#080B24" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="rareTrail" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#704DE2" stop-opacity="0"></stop>
+<stop offset="30%" stop-color="#704DE2" stop-opacity="0.5"></stop>
+<stop offset="65%" stop-color="#B6A4FF" stop-opacity="0.8"></stop>
+<stop offset="90%" stop-color="#74DDF4" stop-opacity="0.95"></stop>
+<stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"></stop>
+</linearGradient>
+<filter height="220%" id="bloomRare" width="220%" x="-60%" y="-60%">
+<feGaussianBlur in="SourceGraphic" result="blur1" stdDeviation="8"></feGaussianBlur>
+<feGaussianBlur in="SourceGraphic" result="blur2" stdDeviation="3"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="blur1"></feMergeNode>
+<feMergeNode in="blur2"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>
+    @keyframes rarePlunge {
+      0% { transform: translate(-40px, -35px) scale(0.65); opacity: 0; }
+      10% { opacity: 1; }
+      75% { transform: translate(360px, 270px) scale(1.08); opacity: 1; }
+      100% { transform: translate(460px, 350px) scale(0.3); opacity: 0; }
+    }
+    @keyframes rareTrailStagger {
+      0% { stroke-dashoffset: 360; opacity: 0; }
+      15% { opacity: 0.95; }
+      75% { stroke-dashoffset: 50; opacity: 0.95; }
+      100% { stroke-dashoffset: -70; opacity: 0; }
+    }
+    @keyframes rareRingWave {
+      0% { r: 5; opacity: 0.8; stroke-width: 3; }
+      100% { r: 45; opacity: 0; stroke-width: 0.5; }
+    }
+    @keyframes rareStarPulse {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.22); }
+    }
+    .rare-meteor { animation: rarePlunge 3.8s cubic-bezier(0.22, 0.85, 0.35, 1) 1.05s 1 both; }
+    .rare-tail-line { stroke-dasharray: 320; animation: rareTrailStagger 3.8s cubic-bezier(0.22, 0.85, 0.35, 1) 1.05s 1 both; }
+    .rare-diamond { transform-origin: 0 0; animation: rareStarPulse 2.8s linear 1.05s 1 both; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+<!-- Frame Background -->
+<rect fill="#0E1235" fill-opacity="0.38" height="380" rx="14" stroke="rgba(112, 77, 226, 0.35)" stroke-width="1.2" width="540"></rect>
+<rect fill="url(#rareNebula)" height="380" rx="14" width="540"></rect>
+
+
+
+<!-- Falling Rare Meteor System -->
+<g class="rare-meteor">
+<!-- Multilayer Ion Wake -->
+<path class="rare-tail-line" d="M -170 -130 L 0 0" filter="url(#bloomRare)" stroke="url(#rareTrail)" stroke-linecap="round" stroke-width="6"></path>
+<path class="rare-tail-line" d="M -110 -85 L 0 0" stroke="#B6A4FF" stroke-linecap="round" stroke-width="2.5"></path>
+<path class="rare-tail-line" d="M -60 -45 L 0 0" stroke="#FFFFFF" stroke-linecap="round" stroke-width="1.8"></path>
+<!-- Stardust Sparks -->
+<circle cx="-35" cy="-28" fill="#74DDF4" filter="url(#bloomRare)" r="2.5"></circle>
+<circle cx="-70" cy="-55" fill="#B6A4FF" r="2.2"></circle>
+<circle cx="-110" cy="-85" fill="#704DE2" r="1.8"></circle>
+<circle cx="-140" cy="-108" fill="#74DDF4" r="1.2"></circle>
+<!-- Atmospheric Entry Shockwave -->
+
+
+<!-- Radiant Plasma Core -->
+<circle cx="0" cy="0" fill="#704DE2" filter="url(#bloomRare)" opacity="0.35" r="26"></circle>
+<circle cx="0" cy="0" fill="#B6A4FF" filter="url(#bloomRare)" opacity="0.75" r="15"></circle>
+<!-- 8-Point Diamond Star -->
+<g class="rare-diamond" filter="url(#bloomRare)">
+<polygon fill="#FFFFFF" points="0,-22 4,-3 22,0 4,3 0,22 -4,3 -22,0 -4,-3"></polygon>
+<polygon fill="#74DDF4" opacity="0.85" points="-12,-12 0,-3 12,-12 3,0 12,12 0,3 -12,12 -3,0"></polygon>
+<polygon fill="#FFFFFF" points="0,-8 8,0 0,8 -8,0"></polygon>
+</g>
+<circle cx="0" cy="0" fill="#FFFFFF" r="3.5"></circle>
+</g>
+
+
+</svg>
