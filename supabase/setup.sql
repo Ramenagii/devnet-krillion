@@ -1,6 +1,7 @@
 -- Run this file once in Supabase Dashboard → SQL Editor.
 -- Also enable Anonymous Sign-ins under Authentication → Providers.
 create schema if not exists extensions;
+create extension if not exists pgcrypto with schema extensions;
 create extension if not exists pg_trgm with schema extensions;
 
 create table if not exists public.daily_questions (
@@ -272,7 +273,7 @@ begin
   if auth.uid() is null then raise exception 'Sign in to create a room'; end if;
   if char_length(trim(coalesce(p_display_name, ''))) not between 1 and 24 then raise exception 'Nickname must be 1–24 characters'; end if;
   loop
-    v_code := upper(substr(encode(gen_random_bytes(4), 'hex'), 1, 6));
+    v_code := upper(substr(encode(extensions.gen_random_bytes(4), 'hex'), 1, 6));
     begin
       insert into public.battle_rooms (code, room_title, host_user_id)
         values (v_code, left(coalesce(nullif(trim(p_title), ''), 'Open lobby'), 48), auth.uid()) returning id into v_room_id;
@@ -294,7 +295,7 @@ begin
   if not found then raise exception 'Room code not found'; end if;
   if v_room.status <> 'waiting' then raise exception 'This room has already started'; end if;
   select count(*) into v_count from public.battle_players where room_id = v_room.id;
-  if v_count >= 18 and not exists (select 1 from public.battle_players where room_id = v_room.id and user_id = auth.uid()) then raise exception 'This room is full'; end if;
+  if v_count >= 50 and not exists (select 1 from public.battle_players where room_id = v_room.id and user_id = auth.uid()) then raise exception 'This room is full (50 players maximum)'; end if;
   insert into public.battle_players (room_id, user_id, display_name) values (v_room.id, auth.uid(), trim(p_display_name))
     on conflict (room_id, user_id) do update set display_name = excluded.display_name;
   return public.get_battle_room(v_room.code);

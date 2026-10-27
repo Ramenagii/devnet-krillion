@@ -1,6 +1,9 @@
 -- Run after setup.sql and gemini_scoring.sql in the Supabase SQL Editor.
 -- Gives new rooms longer random codes and stores per-question battle scores.
 
+create schema if not exists extensions;
+create extension if not exists pgcrypto with schema extensions;
+
 alter table public.battle_rooms
   drop constraint if exists battle_rooms_code_check;
 alter table public.battle_rooms
@@ -66,7 +69,7 @@ begin
   if auth.uid() is null then raise exception 'Sign in to create a room'; end if;
   if char_length(trim(coalesce(p_display_name, ''))) not between 1 and 24 then raise exception 'Enter a name (1–24 characters)'; end if;
   loop
-    v_code := upper(substr(encode(gen_random_bytes(4), 'hex'), 1, 8));
+    v_code := upper(substr(encode(extensions.gen_random_bytes(4), 'hex'), 1, 8));
     begin
       insert into public.battle_rooms (code, room_title, host_user_id, question_date)
         values (v_code, left(coalesce(nullif(trim(p_title), ''), 'Open lobby'), 48), auth.uid(), (now() at time zone 'Asia/Manila')::date) returning id into v_room_id;
@@ -88,7 +91,7 @@ begin
   if not found then raise exception 'Room code not found'; end if;
   if v_room.status <> 'waiting' then raise exception 'This room has already started'; end if;
   select count(*) into v_count from public.battle_players where room_id = v_room.id;
-  if v_count >= 18 and not exists (select 1 from public.battle_players where room_id = v_room.id and user_id = auth.uid()) then raise exception 'This room is full'; end if;
+  if v_count >= 50 and not exists (select 1 from public.battle_players where room_id = v_room.id and user_id = auth.uid()) then raise exception 'This room is full (50 players maximum)'; end if;
   insert into public.battle_players (room_id, user_id, display_name) values (v_room.id, auth.uid(), trim(p_display_name))
     on conflict (room_id, user_id) do update set display_name = excluded.display_name;
   return public.get_battle_room(v_room.code);
@@ -109,7 +112,6 @@ declare
   v_question public.daily_question_sets%rowtype;
   v_normalized text;
   v_closeness real := 0;
-  v_tier_bonus integer := 10;
   v_rarity_tier text;
   v_points integer := 0;
   v_rarity_bonus integer := 0;
@@ -140,9 +142,8 @@ begin
   v_normalized := lower(regexp_replace(trim(p_answer), '\s+', ' ', 'g'));
   select coalesce(max(extensions.similarity(v_normalized, lower(regexp_replace(trim(a), '\s+', ' ', 'g')))), 0)
     into v_closeness from unnest(v_question.accepted_answers) a;
-  v_tier_bonus := case v_rarity_tier when 'uncommon' then 25 when 'rare' then 50 when 'epic' then 100 when 'legendary' then 200 else 10 end;
-  v_rarity_bonus := round(v_tier_bonus * v_closeness)::integer;
-  v_points := 10 + round(v_closeness * 90)::integer + v_rarity_bonus;
+  v_points := round(p_rarity_score * v_closeness)::integer;
+  v_rarity_bonus := v_points;
 
   insert into public.battle_answers (room_id, user_id, question_index, answer, points, closeness, rarity_bonus, rarity_tier, rarity_score)
     values (v_room.id, p_user_id, p_question_index, trim(p_answer), v_points, v_closeness, v_rarity_bonus, v_rarity_tier, p_rarity_score);

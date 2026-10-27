@@ -8,6 +8,8 @@ type RarityTier = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary'
 type Feedback = { kind: 'scored' | 'error'; text: string; rarityTier?: RarityTier; rarityScore?: number }
 type BattleRoom = { id: string; code: string; title: string; status: 'waiting' | 'active'; host_user_id: string; is_host: boolean; players: { user_id: string; display_name: string; is_host: boolean; score: number; answered_count: number }[] }
 
+const MAX_ANSWER_LENGTH = 150
+
 const OFFLINE_QUESTIONS: Question[] = [
   { topic: 'Phones & computers', prompt: 'What keeps apps ready while you use your device?', accepted: ['ram', 'random access memory', 'memory', 'system memory', 'volatile memory', 'dram', 'sram', 'cache', 'registers'] },
   { topic: 'The web', prompt: 'What helps your browser find a website?', accepted: ['dns', 'domain name system', 'dns resolver', 'resolver', 'nameserver', 'name server', 'recursive dns', 'authoritative dns', 'hosts file'] },
@@ -51,6 +53,7 @@ function App() {
   const [feedback, setFeedback] = useState<Feedback | null>(null)
   const [score, setScore] = useState(0)
   const [timeLeft, setTimeLeft] = useState(30)
+  const questionDeadline = useRef(0)
   const [gameDone, setGameDone] = useState(false)
   const [loading, setLoading] = useState(false)
   const [runId, setRunId] = useState<string | null>(null)
@@ -66,9 +69,14 @@ function App() {
   const [battleMode, setBattleMode] = useState<'create' | 'join'>('create')
   const inputRef = useRef<HTMLInputElement>(null)
   const current = dailyQuestions[questionIndex]
+  const answerScored = feedback?.kind === 'scored'
   const progress = gameDone ? 100 : (questionIndex / dailyQuestions.length) * 100
   const answeredQuestions = gameDone ? dailyQuestions.length : questionIndex + (feedback?.kind === 'scored' ? 1 : 0)
   const rankedPlayers = useMemo(() => [...(battleRoom?.players ?? [])].sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || (b.answered_count ?? 0) - (a.answered_count ?? 0)), [battleRoom?.players])
+  const resetQuestionTimer = useCallback(() => {
+    questionDeadline.current = Date.now() + 30_000
+    setTimeLeft(30)
+  }, [])
 
   useEffect(() => {
     if (!supabase) return
@@ -139,23 +147,36 @@ function App() {
     setAnswer('')
     setFeedback(null)
     setScore(0)
-    setTimeLeft(30)
+    resetQuestionTimer()
     setGameDone(false)
     setNav('Play')
-  }, [battleRoom?.status])
+  }, [battleRoom?.status, resetQuestionTimer])
 
   useEffect(() => {
-    if (nav !== 'Play' || gameDone || timeLeft === 0 || feedback?.kind === 'scored') return
-    const timer = window.setInterval(() => setTimeLeft((value) => {
-      if (value <= 1) {
-        window.clearInterval(timer)
-        setFeedback({ kind: 'error', text: 'Time is up. Try an answer anyway.' })
-        return 0
+    if (nav !== 'Play' || gameDone || answerScored) return
+    let timer: number | undefined
+    const syncTimer = () => {
+      const remaining = Math.max(0, Math.ceil((questionDeadline.current - Date.now()) / 1000))
+      setTimeLeft((value) => value === remaining ? value : remaining)
+      if (remaining === 0) {
+        if (timer !== undefined) window.clearInterval(timer)
+        setFeedback((value) => value?.kind === 'scored' || value?.text === 'Time is up. Try an answer anyway.'
+          ? value
+          : { kind: 'error', text: 'Time is up. Try an answer anyway.' })
       }
-      return value - 1
-    }), 1000)
-    return () => window.clearInterval(timer)
-  }, [nav, questionIndex, gameDone, feedback?.kind, timeLeft])
+    }
+    timer = window.setInterval(syncTimer, 250)
+    document.addEventListener('visibilitychange', syncTimer)
+    window.addEventListener('focus', syncTimer)
+    window.addEventListener('pageshow', syncTimer)
+    syncTimer()
+    return () => {
+      if (timer !== undefined) window.clearInterval(timer)
+      document.removeEventListener('visibilitychange', syncTimer)
+      window.removeEventListener('focus', syncTimer)
+      window.removeEventListener('pageshow', syncTimer)
+    }
+  }, [nav, questionIndex, gameDone, answerScored])
 
   useEffect(() => {
     if (nav !== 'Play') return
@@ -172,22 +193,25 @@ function App() {
     setQuestionIndex((index) => index + 1)
     setAnswer('')
     setFeedback(null)
-    setTimeLeft(30)
+    resetQuestionTimer()
     window.setTimeout(() => inputRef.current?.focus(), 30)
-  }, [questionIndex, dailyQuestions.length])
+  }, [questionIndex, dailyQuestions.length, resetQuestionTimer])
 
   const submitAnswer = async (event: FormEvent) => {
     event.preventDefault()
     const cleaned = answer.trim()
     if (!cleaned || loading || gameDone) return
+    if (cleaned.length > MAX_ANSWER_LENGTH) {
+      setFeedback({ kind: 'error', text: `Keep your answer under ${MAX_ANSWER_LENGTH} characters.` })
+      return
+    }
     setLoading(true)
     const normalized = cleaned.toLocaleLowerCase().replace(/\s+/g, ' ').trim()
     let closeness = answerSimilarity(normalized, current.accepted ?? [])
     let rarityTier: RarityTier | undefined
     let rarityScore: number | undefined
-    let rarityBonus = supabase && runId ? Math.round(40 * closeness) : 0
-    let points = 10 + Math.round(closeness * 90) + rarityBonus
-    let total = score + points
+    let points = 0
+    let total = score
 
     if (supabase && battleRoom?.status === 'active') {
       const { data, error } = await supabase.functions.invoke('score-battle-answer', {
@@ -202,7 +226,6 @@ function App() {
       rarityScore = result?.rarity_score
       rarityTier = typeof rarityScore === 'number' ? tierForRarityScore(rarityScore) : result?.rarity_tier
       closeness = result?.closeness ?? closeness
-      rarityBonus = result?.rarity_bonus ?? rarityBonus
       points = result?.points ?? points
       total = result?.total_score ?? (score + points)
     } else if (supabase && runId) {
@@ -218,7 +241,6 @@ function App() {
       rarityScore = result?.rarity_score
       rarityTier = typeof rarityScore === 'number' ? tierForRarityScore(rarityScore) : result?.rarity_tier
       closeness = result?.closeness ?? closeness
-      rarityBonus = result?.rarity_bonus ?? rarityBonus
       points = result?.points ?? points
       total = result?.total_score ?? (score + points)
     }
@@ -235,7 +257,7 @@ function App() {
     setAnswer('')
     setFeedback(null)
     setScore(0)
-    setTimeLeft(30)
+    resetQuestionTimer()
     setGameDone(false)
     setNav(battleRoom?.status === 'active' ? 'Battle' : 'Today')
   }
@@ -336,8 +358,8 @@ function App() {
 
         {nav === 'Today' && <section className="home-dive">
           <div className="today-topic"><span className="micro-label">7 QUESTIONS</span><div className="home-progress" role="progressbar" aria-label="Dive progress" aria-valuemin={0} aria-valuemax={dailyQuestions.length} aria-valuenow={answeredQuestions}><span style={{ transform: `scaleX(${answeredQuestions / dailyQuestions.length})` }} /></div><span className="topic-name">Everyday tech</span></div>
-          <button className="primary-button start-button" disabled={questionSetState !== 'ready'} onClick={() => { setNav('Play'); setTimeLeft(30) }}>{questionSetState === 'loading' ? 'Loading questions…' : questionSetState === 'error' ? 'Questions unavailable' : 'Start dive'} {questionSetState === 'ready' && <ArrowRight size={17} />}</button>
-          <p className="dive-rule">{questionSetState === 'ready' ? '30 sec each · closer, rarer answers score more' : questionSetState === 'loading' ? 'Preparing today’s seven tech questions…' : 'Today’s questions could not load. Reload the page to try again.'}</p>
+          <button className="primary-button start-button" disabled={questionSetState !== 'ready'} onClick={() => { setNav('Play'); resetQuestionTimer() }}>{questionSetState === 'loading' ? 'Loading questions…' : questionSetState === 'error' ? 'Questions unavailable' : 'Start dive'} {questionSetState === 'ready' && <ArrowRight size={17} />}</button>
+          <p className="dive-rule">{questionSetState === 'ready' ? 'Rare answers earn more points.' : questionSetState === 'loading' ? 'Preparing today’s seven tech questions…' : 'Today’s questions could not load. Reload the page to try again.'}</p>
           <figure className="campus-banner"><img src="/assets/netconnect-campus-banner.jpg" alt="Cisco NetConnect at Polytechnic University of the Philippines, Sta. Mesa, Manila" /></figure>
         </section>}
 
@@ -346,7 +368,7 @@ function App() {
           {battleRoom ? <article className="room-card">
             <div className="room-header"><div><span className="micro-label">{battleRoom.status === 'active' ? 'ROOM LIVE' : 'WAITING ROOM'}</span><h2>{battleRoom.title || roomTitle || 'Battle room'}</h2></div><Swords size={21} /></div>
             <div className="room-code"><div><span className="micro-label">ROOM CODE</span><strong>{battleRoom.code}</strong></div><button type="button" className="icon-action" aria-label="Copy room code" onClick={() => void copyBattleCode()}><Copy size={17} /></button></div>
-            <div className="room-members"><div className="members-label"><span><Users size={15} /> Players</span><span>{battleRoom.players.length} / 18</span></div></div>
+            <div className="room-members"><div className="members-label"><span><Users size={15} /> Players</span><span>{battleRoom.players.length} / 50</span></div></div>
             <div className="lobby-leaderboard"><div className="leaderboard-heading"><span>Leaderboard</span><span>POINTS</span></div>{rankedPlayers.map((player, index) => <div className="leaderboard-row" key={player.user_id}><span className="leaderboard-rank">{String(index + 1).padStart(2, '0')}</span><span className="leaderboard-name">{player.display_name}{player.is_host && <small>HOST</small>}</span><strong>{player.score ?? 0}</strong></div>)}</div>
             {battleRoom.is_host && battleRoom.status === 'waiting' && <button className="primary-button battle-primary" disabled={battleBusy || battleRoom.players.length < 2 || questionSetState !== 'ready'} onClick={() => void startBattleRoom()}>{battleBusy ? 'Starting…' : 'Start room'} <ArrowRight size={17} /></button>}
             {battleRoom.is_host && battleRoom.status === 'waiting' && battleRoom.players.length < 2 && <p className="battle-notice">Invite one more player to start.</p>}
@@ -371,7 +393,8 @@ function App() {
               <div className="question-heading"><h2>{current.prompt}</h2></div>
               <form onSubmit={submitAnswer} className="answer-form">
                 <label htmlFor="answer-input"><span>Your answer</span><span className="mono key-hint">Enter ↵</span></label>
-                <div className={`input-wrap ${feedback?.kind === 'scored' ? 'input-scored' : ''}`}><input ref={inputRef} id="answer-input" value={answer} onChange={(event) => setAnswer(event.target.value)} placeholder="Type anything…" autoComplete="off" autoCapitalize="off" spellCheck={false} disabled={feedback?.kind === 'scored'} aria-describedby="answer-feedback" /></div>
+                <div className={`input-wrap ${feedback?.kind === 'scored' ? 'input-scored' : ''}`}><input ref={inputRef} id="answer-input" value={answer} maxLength={MAX_ANSWER_LENGTH} onChange={(event) => setAnswer(event.target.value.slice(0, MAX_ANSWER_LENGTH))} placeholder="Type anything…" autoComplete="off" autoCapitalize="off" spellCheck={false} disabled={feedback?.kind === 'scored'} aria-describedby="answer-feedback answer-counter" /></div>
+                <div id="answer-counter" className={`answer-counter ${answer.length >= MAX_ANSWER_LENGTH - 15 ? 'answer-counter-near-limit' : ''}`} aria-live="polite">{answer.length}/{MAX_ANSWER_LENGTH}</div>
                 <button className="primary-button" type="submit" disabled={!answer.trim() || loading || feedback?.kind === 'scored'}>{feedback?.kind === 'scored' ? <><Check size={17} /> {feedback.text}</> : loading ? 'Scoring…' : <>Submit <ArrowDown size={17} /></>}</button>
                 <div id="answer-feedback" className={`feedback ${feedback ? `feedback-${feedback.kind}` : ''}`} aria-live="polite">{feedback?.kind === 'error' ? feedback.text : null}{feedback?.kind === 'scored' && <button type="button" onClick={nextQuestion}>{questionIndex === dailyQuestions.length - 1 ? 'Finish' : 'Next'} <ArrowRight size={13} /></button>}</div>
               </form>

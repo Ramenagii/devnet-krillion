@@ -26,7 +26,6 @@ declare
   v_question public.daily_question_sets%rowtype;
   v_normalized text;
   v_closeness real := 0;
-  v_tier_bonus integer := 10;
   v_rarity_tier text;
   v_points integer := 0;
   v_rarity_bonus integer := 0;
@@ -56,10 +55,8 @@ begin
   v_normalized := lower(regexp_replace(trim(p_answer), '\s+', ' ', 'g'));
   select coalesce(max(extensions.similarity(v_normalized, lower(regexp_replace(trim(a), '\s+', ' ', 'g')))), 0)
     into v_closeness from unnest(v_question.accepted_answers) a;
-  v_tier_bonus := case v_rarity_tier
-    when 'uncommon' then 25 when 'rare' then 50 when 'epic' then 100 when 'legendary' then 200 else 10 end;
-  v_rarity_bonus := round(v_tier_bonus * v_closeness)::integer;
-  v_points := 10 + round(v_closeness * 90)::integer + v_rarity_bonus;
+  v_points := round(p_rarity_score * v_closeness)::integer;
+  v_rarity_bonus := v_points;
 
   insert into public.daily_answers (run_id, question_index, answer, is_scored, points, closeness, rarity_bonus, rarity_tier, rarity_score)
     values (p_run_id, p_question_index, trim(p_answer), true, v_points, v_closeness, v_rarity_bonus, v_rarity_tier, p_rarity_score);
